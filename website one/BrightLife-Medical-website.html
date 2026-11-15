@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mednix — Elderly Care & Senior Wellness Center</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            tealDeep: '#0B3B3C',
+            tealDarker: '#072728',
+            tealPrimary: '#0D9488',
+            tealLight: '#14B8A6',
+            tealMint: '#CCFBF1',
+            sageBg: '#F3F7F5',
+            sageSoft: '#E6F0EC',
+            creamBg: '#FFFDF9',
+            coralAccent: '#E07A5F',
+            amberWarm: '#F59E0B',
+            inkStrong: '#0C2223',
+            inkBody: '#485E5F',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+          },
+          boxShadow: {
+            soft: '0 10px 35px -10px rgba(11, 59, 60, 0.08)',
+            elevated: '0 22px 50px -12px rgba(11, 59, 60, 0.16)',
+            glow: '0 12px 28px -6px rgba(13, 148, 136, 0.38)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --max-container: 1720px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #485E5F;
+      background-color: #FFFFFF;
+      
+    }
+
+    /* Full-Wide Fluid Container Architecture (Eliminates narrow side gaps) */
+    .wide-container {
+      width: 100%;
+      max-width: var(--max-container);
+      margin-inline: auto;
+      padding-inline: clamp(20px, 3.5vw, 56px);
+    }
+
+    /* Edge-to-Edge Full-Bleed Wrapper with subtle outer frame */
+    .full-bleed-wrap {
+      margin-inline: clamp(12px, 1.8vw, 28px);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    /* Rotating Circular SVG Text Badge */
+    @keyframes spinSlow {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .spin-badge {
+      animation: spinSlow 18s linear infinite;
+    }
+
+    /* Infinite Marquee Animation */
+    @keyframes marqueeScroll {
+      0% {
+        transform: translateX(0%);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 32s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Subtle Dot Mesh Pattern */
+    .bg-dot-pattern {
+      background-image: radial-gradient(rgba(13, 148, 136, 0.16) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+
+    .bg-dot-light {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px);
+      background-size: 26px 26px;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #F3F7F5;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #0D9488;
+      border-radius: 9999px;
+    }
+
+    /* Card Image Zoom Effect */
+    .service-card:hover .service-img {
+      transform: scale(1.07);
+    }
+
+    /* Progress Bar Transition */
+    .progress-fill {
+      transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-tealPrimary selection:text-white">
+
+  <!-- =========================================================
+       1. TOP UTILITY BAR (FULL-WIDE)
+  ========================================================== -->
+  <div class="bg-tealDarker text-tealMint/90 text-xs sm:text-sm py-2.5 border-b border-white/10">
+    <div class="wide-container flex flex-wrap items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-1.5">
+        <span class="flex items-center gap-2">
+          <i class="fa-solid fa-location-dot text-tealLight"></i>
+          <span>480 Senior Wellness Blvd, Suite 200, Boston, MA</span>
+        </span>
+        <a href="mailto:support@mednixcare.com" class="flex items-center gap-2 hover:text-white transition">
+          <i class="fa-solid fa-envelope text-tealLight"></i>
+          <span>support@mednixcare.com</span>
+        </a>
+        <span class="hidden xl:flex items-center gap-2">
+          <i class="fa-solid fa-shield-heart text-amberWarm"></i>
+          <span>Medicare & Medicaid Certified Elderly Care Facility</span>
+        </span>
+      </div>
+
+      <div class="flex items-center gap-6 ml-auto">
+        <span class="hidden md:flex items-center gap-2">
+          <i class="fa-regular fa-clock text-tealLight"></i>
+          <span>Mon – Sun: 24/7 Care & Emergency Support</span>
+        </span>
+        <div class="flex items-center gap-3 border-l border-white/15 pl-4">
+          <a href="#contact" aria-label="Facebook" class="hover:text-white transition"><i
+              class="fa-brands fa-facebook-f"></i></a>
+          <a href="#contact" aria-label="Twitter" class="hover:text-white transition"><i
+              class="fa-brands fa-x-twitter"></i></a>
+          <a href="#contact" aria-label="LinkedIn" class="hover:text-white transition"><i
+              class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#contact" aria-label="Instagram" class="hover:text-white transition"><i
+              class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       2. STICKY FULL-WIDE NAVIGATION HEADER
+  ========================================================== -->
+  <header id="navbar"
+    class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-tealDeep/10 transition-all duration-300">
+    <div class="wide-container h-20 lg:h-24 flex items-center justify-between gap-4">
+      <!-- Brand Logo -->
+      <a href="#top" class="flex items-center gap-3.5 group shrink-0">
+        <div
+          class="w-12 h-12 rounded-2xl bg-gradient-to-br from-tealLight to-tealDeep flex items-center justify-center text-white shadow-glow group-hover:rotate-6 transition-transform">
+          <i class="fa-solid fa-hand-holding-medical text-xl"></i>
+        </div>
+        <div>
+          <span class="text-2xl lg:text-[28px] font-extrabold tracking-tight text-inkStrong block leading-none">
+            Med<span class="text-tealPrimary">nix</span>
+          </span>
+          <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-tealDeep/70 block mt-1">
+            Elderly Care Center
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden xl:flex items-center gap-1 2xl:gap-2">
+        <a href="#top" class="px-2 py-2 rounded-xl text-sm font-bold text-tealPrimary bg-sageBg transition">Home</a>
+        <a href="#about"
+          class="px-2 py-2 rounded-xl text-sm font-bold text-inkStrong hover:text-tealPrimary hover:bg-sageBg transition">About
+          Us</a>
+        <a href="#services"
+          class="px-2 py-2 rounded-xl text-sm font-bold text-inkStrong hover:text-tealPrimary hover:bg-sageBg transition">Senior
+          Services</a>
+        <a href="#why-us"
+          class="px-2 py-2 rounded-xl text-sm font-bold text-inkStrong hover:text-tealPrimary hover:bg-sageBg transition">Why
+          Choose Us</a>
+        <a href="#doctors"
+          class="px-2 py-2 rounded-xl text-sm font-bold text-inkStrong hover:text-tealPrimary hover:bg-sageBg transition">Medical
+          Experts</a>
+        <a href="#portfolio"
+          class="px-2 py-2 rounded-xl text-sm font-bold text-inkStrong hover:text-tealPrimary hover:bg-sageBg transition">Care
+          Programs</a>
+        <a href="#testimonials"
+          class="px-2 py-2 rounded-xl text-sm font-bold text-inkStrong hover:text-tealPrimary hover:bg-sageBg transition">Testimonials</a>
+        <a href="#blog"
+          class="px-2 py-2 rounded-xl text-sm font-bold text-inkStrong hover:text-tealPrimary hover:bg-sageBg transition">Health
+          Insights</a>
+      </nav>
+
+      <!-- Right Action Buttons -->
+      <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+        <!-- 24/7 Helpline Pill -->
+        <a href="tel:+18004567890"
+          class="hidden md:flex items-center gap-3 pl-2 pr-4 py-1.5 rounded-full border border-tealDeep/15 bg-sageBg/60 hover:border-tealPrimary transition">
+          <span class="w-10 h-10 rounded-full bg-tealPrimary text-white flex items-center justify-center shadow-sm">
+            <i class="fa-solid fa-phone-volume text-sm animate-pulse"></i>
+          </span>
+          <div class="text-left">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-inkBody block leading-none">24/7 Care
+              Helpline</span>
+            <span class="text-sm font-extrabold text-inkStrong block mt-0.5">+1 (800) 456-7890</span>
+          </div>
+        </a>
+
+        <!-- Primary CTA Button -->
+        <button onclick="openBookingModal('General Senior Care Assessment')"
+          class="inline-flex items-center gap-3 bg-tealDeep hover:bg-tealPrimary text-white font-bold text-xs sm:text-sm pl-5 pr-2.5 py-2.5 rounded-full shadow-soft transition-all duration-300 group">
+          <span>Book A Care Visit</span>
+          <span
+            class="w-8 h-8 rounded-full bg-tealLight text-tealDarker flex items-center justify-center group-hover:rotate-45 transition-transform">
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+          </span>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" aria-label="Toggle Menu"
+          class="xl:hidden w-11 h-11 rounded-xl bg-sageBg text-inkStrong flex items-center justify-center hover:bg-tealPrimary hover:text-white transition">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileDrawer" class="hidden xl:hidden bg-white border-t border-tealDeep/10 shadow-elevated">
+      <div class="wide-container py-5 flex flex-col gap-2">
+        <a href="#top" class="mobile-link px-4 py-2.5 rounded-xl font-bold text-inkStrong hover:bg-sageBg">Home</a>
+        <a href="#about" class="mobile-link px-4 py-2.5 rounded-xl font-bold text-inkStrong hover:bg-sageBg">About
+          Us</a>
+        <a href="#services" class="mobile-link px-4 py-2.5 rounded-xl font-bold text-inkStrong hover:bg-sageBg">Senior
+          Services</a>
+        <a href="#why-us" class="mobile-link px-4 py-2.5 rounded-xl font-bold text-inkStrong hover:bg-sageBg">Why
+          Choose Us</a>
+        <a href="#doctors" class="mobile-link px-4 py-2.5 rounded-xl font-bold text-inkStrong hover:bg-sageBg">Medical
+          Experts</a>
+        <a href="#portfolio" class="mobile-link px-4 py-2.5 rounded-xl font-bold text-inkStrong hover:bg-sageBg">Care
+          Programs</a>
+        <a href="#testimonials"
+          class="mobile-link px-4 py-2.5 rounded-xl font-bold text-inkStrong hover:bg-sageBg">Testimonials</a>
+        <a href="#blog" class="mobile-link px-4 py-2.5 rounded-xl font-bold text-inkStrong hover:bg-sageBg">Health
+          Insights</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       3. FULL-WIDE HERO SECTION ("Enhancing Quality Life for Seniors")
+  ========================================================== -->
+  <section id="top" class="pt-4 pb-10">
+    <div
+      class="full-bleed-wrap bg-gradient-to-br from-sageBg via-[#E3F1EC] to-[#D5EAE3] relative border border-tealPrimary/15">
+      <!-- Decorative Background Mesh & Crosses -->
+      <div class="absolute inset-0 bg-dot-pattern opacity-60 pointer-events-none"></div>
+      <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-tealLight/15 blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-0 right-1/3 w-80 h-80 rounded-full bg-amberWarm/10 blur-3xl pointer-events-none">
+      </div>
+
+      <div class="wide-container py-12 lg:py-20 xl:py-24 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-center">
+
+          <!-- Left Column: Hero Content (7 Columns on large screens) -->
+          <div class="lg:col-span-7 space-y-6 xl:space-y-8">
+            <div
+              class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 border border-tealPrimary/20 shadow-sm">
+              <span class="w-2.5 h-2.5 rounded-full bg-tealPrimary animate-ping"></span>
+              <span class="text-xs font-extrabold uppercase tracking-[0.14em] text-tealDeep">
+                Welcome to Mednix Elderly Care
+              </span>
+            </div>
+
+            <h1
+              class="text-4xl sm:text-5xl xl:text-6xl 2xl:text-[68px] font-extrabold text-inkStrong leading-[1.08] tracking-tight">
+              Enhancing Quality <br class="hidden sm:inline">
+              Life for <span class="font-serif italic font-normal text-tealPrimary">Seniors</span>
+            </h1>
+
+            <p class="text-base sm:text-lg xl:text-xl text-inkBody leading-relaxed max-w-2xl">
+              Compassionate in-home nursing, memory care, and geriatric medical support tailored to your loved one's
+              dignity, independence, and daily comfort. Our registered nurses and certified caregivers stand beside your
+              family 24/7.
+            </p>
+
+            <!-- Hero CTA Row -->
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <button onclick="openBookingModal('Free Home Care Consultation')"
+                class="inline-flex items-center gap-3.5 bg-tealPrimary hover:bg-tealDeep text-white font-extrabold text-sm sm:text-base pl-7 pr-3 py-3.5 rounded-full shadow-glow transition-all duration-300 group">
+                <span>Schedule Free Care Assessment</span>
+                <span
+                  class="w-10 h-10 rounded-full bg-white text-tealDeep flex items-center justify-center group-hover:rotate-45 transition-transform">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </span>
+              </button>
+
+              <a href="#services"
+                class="inline-flex items-center gap-3 bg-white hover:bg-tealDeep hover:text-white text-inkStrong font-bold text-sm sm:text-base px-6 py-4 rounded-full border border-tealDeep/15 shadow-soft transition-all duration-300">
+                <i class="fa-solid fa-stethoscope text-tealPrimary"></i>
+                <span>Explore Senior Services</span>
+              </a>
+            </div>
+
+            <!-- Hero Trust Highlights Bar -->
+            <div class="pt-6 border-t border-tealDeep/10 grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl">
+              <div class="flex items-center gap-3.5 bg-white/75 backdrop-blur-sm p-3.5 rounded-2xl border border-white">
+                <div
+                  class="w-12 h-12 rounded-xl bg-tealPrimary/15 text-tealDeep flex items-center justify-center shrink-0 text-xl font-extrabold">
+                  <i class="fa-solid fa-user-nurse text-tealPrimary"></i>
+                </div>
+                <div>
+                  <div class="text-xl font-extrabold text-inkStrong leading-none">180+ RNs</div>
+                  <div class="text-xs font-semibold text-inkBody mt-1">Licensed Senior Caregivers</div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3.5 bg-white/75 backdrop-blur-sm p-3.5 rounded-2xl border border-white">
+                <div
+                  class="w-12 h-12 rounded-xl bg-amberWarm/15 text-amberWarm flex items-center justify-center shrink-0 text-xl font-extrabold">
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <div>
+                  <div class="text-xl font-extrabold text-inkStrong leading-none">4.9 / 5.0</div>
+                  <div class="text-xs font-semibold text-inkBody mt-1">2,400+ Family Reviews</div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3.5 bg-white/75 backdrop-blur-sm p-3.5 rounded-2xl border border-white">
+                <div
+                  class="w-12 h-12 rounded-xl bg-coralAccent/15 text-coralAccent flex items-center justify-center shrink-0 text-xl font-extrabold">
+                  <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <div>
+                  <div class="text-xl font-extrabold text-inkStrong leading-none">24/7 Care</div>
+                  <div class="text-xs font-semibold text-inkBody mt-1">Rapid On-Call Response</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Hero Dual-Photo Composition matching PDF (5 Columns) -->
+          <div class="lg:col-span-5 relative">
+            <!-- Primary Senior Couple & Caregiver Image -->
+            <div class="relative rounded-[30px] overflow-hidden shadow-elevated border-4 border-white aspect-[4/4.3]">
+              <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1200&q=85"
+                alt="Smiling senior couple with compassionate Mednix nurse"
+                class="w-full h-full object-cover object-center"
+                onerror="this.src='https://placehold.co/900x950/0B3B3C/FFFFFF?text=Senior+Couple+%26+Nurse'">
+              <div class="absolute inset-0 bg-gradient-to-t from-tealDarker/50 via-transparent to-transparent"></div>
+
+              <!-- Floating Top-Left Live Status Pill -->
+              <div
+                class="absolute top-5 left-5 bg-white/95 backdrop-blur-md px-4 py-2 rounded-full shadow-md flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                <span class="text-xs font-extrabold text-inkStrong">Same-Day Home Nurse Dispatch</span>
+              </div>
+            </div>
+
+            <!-- Bottom-Right Inset Photo Card (Exact match to PDF visual layout) -->
+            <div
+              class="hidden sm:block absolute -bottom-6 -right-3 xl:-right-6 w-52 xl:w-64 rounded-[26px] overflow-hidden border-[6px] border-white shadow-elevated bg-white">
+              <div class="aspect-[4/3.4] relative">
+                <img src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=600&q=80"
+                  alt="Caregiver assisting elderly woman at home" class="w-full h-full object-cover"
+                  onerror="this.src='https://placehold.co/400x340/0D9488/FFFFFF?text=Home+Care'">
+              </div>
+              <div class="p-3 bg-white flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] font-extrabold uppercase tracking-wider text-tealPrimary block">Trusted
+                    Support</span>
+                  <span class="text-xs font-extrabold text-inkStrong">1-on-1 Dedicated Care</span>
+                </div>
+                <span
+                  class="w-8 h-8 rounded-full bg-sageBg text-tealPrimary flex items-center justify-center text-xs font-bold">
+                  100%
+                </span>
+              </div>
+            </div>
+
+            <!-- Floating Bottom-Left Avatar Card -->
+            <div
+              class="absolute bottom-5 left-5 bg-tealDeep/95 backdrop-blur-md text-white p-4 rounded-2xl shadow-elevated border border-white/15 max-w-[240px]">
+              <div class="flex items-center -space-x-2.5 mb-2">
+                <img class="w-9 h-9 rounded-full border-2 border-tealDeep object-cover"
+                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=150&q=80"
+                  alt="Doctor">
+                <img class="w-9 h-9 rounded-full border-2 border-tealDeep object-cover"
+                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=150&q=80"
+                  alt="Doctor">
+                <img class="w-9 h-9 rounded-full border-2 border-tealDeep object-cover"
+                  src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=150&q=80"
+                  alt="Nurse">
+                <span
+                  class="w-9 h-9 rounded-full border-2 border-tealDeep bg-tealLight text-tealDarker text-xs font-extrabold flex items-center justify-center">+45</span>
+              </div>
+              <p class="text-xs font-bold text-tealMint leading-snug">Geriatricians & Home Nurses Ready to Assist</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       4. ABOUT SECTION ("Compassion Meets Expertise in Elderly Care")
+  ========================================================== -->
+  <section id="about" class="py-16 lg:py-24">
+    <div class="wide-container">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-16 items-center">
+
+        <!-- Left Column: Multi-Image Collage + Rotating Badge -->
+        <div class="lg:col-span-6 relative">
+          <div class="grid grid-cols-12 gap-4 sm:gap-6 items-end">
+            <!-- Tall Primary Image -->
+            <div
+              class="col-span-7 rounded-3xl overflow-hidden shadow-elevated border border-tealDeep/10 aspect-[3/3.9]">
+              <img src="https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=800&q=85"
+                alt="Nurse holding hands and comforting senior patient" class="w-full h-full object-cover"
+                onerror="this.src='https://placehold.co/600x780/0B3B3C/FFFFFF?text=Compassionate+Care'">
+            </div>
+
+            <!-- Right Stacked Column -->
+            <div class="col-span-5 space-y-4 sm:space-y-6">
+              <!-- Experience Counter Box -->
+              <div class="bg-tealDeep text-white p-6 rounded-3xl shadow-soft relative overflow-hidden">
+                <div class="text-4xl sm:text-5xl font-extrabold text-tealLight leading-none">25+</div>
+                <div class="text-xs sm:text-sm font-semibold text-tealMint/90 mt-2 leading-snug">
+                  Years of Excellence in Senior & Geriatric Care
+                </div>
+                <i class="fa-solid fa-award text-5xl text-white/10 absolute -bottom-2 -right-2 pointer-events-none"></i>
+              </div>
+
+              <!-- Secondary Image -->
+              <div class="rounded-3xl overflow-hidden shadow-soft border border-tealDeep/10 aspect-[4/4.6]">
+                <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=85"
+                  alt="Senior woman smiling with physical therapist" class="w-full h-full object-cover"
+                  onerror="this.src='https://placehold.co/500x580/0D9488/FFFFFF?text=Senior+Wellness'">
+              </div>
+            </div>
+          </div>
+
+          <!-- Center Rotating Circular Seal Badge (From PDF) -->
+          <div
+            class="hidden sm:flex absolute top-1/2 left-[54%] -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-full bg-white shadow-elevated border border-tealDeep/10 items-center justify-center p-2">
+            <svg viewBox="0 0 100 100" class="w-full h-full spin-badge">
+              <defs>
+                <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+              </defs>
+              <text font-size="8.7" font-weight="800" fill="#0B3B3C" letter-spacing="2.2">
+                <textPath href="#circlePath">
+                  • HOME NURSING • ELDERLY CARE • MEDNIX
+                </textPath>
+              </text>
+            </svg>
+            <div
+              class="absolute w-14 h-14 rounded-full bg-tealPrimary text-white flex items-center justify-center shadow-md">
+              <i class="fa-solid fa-heart-circle-check text-xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: About Copy & Feature List -->
+        <div class="lg:col-span-6 space-y-6">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sageBg border border-tealPrimary/20 text-xs font-extrabold uppercase tracking-widest text-tealPrimary">
+            <span class="w-2 h-2 rounded-full bg-tealPrimary"></span>
+            <span>About Mednix Elderly Care</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-inkStrong leading-[1.14]">
+            Compassion Meets <br class="hidden sm:inline">
+            <span class="font-serif italic font-normal text-tealPrimary">Expertise</span> in Elderly Care
+          </h2>
+
+          <p class="text-base sm:text-lg text-inkBody leading-relaxed">
+            At Mednix, we believe aging should be celebrated with warmth, safety, and medical excellence. Whether your
+            family needs daily personal care assistance, specialized Alzheimer's support, or post-hospital clinical
+            nursing, we create a customized care plan around every senior's rhythm of life.
+          </p>
+
+          <!-- Highlight Feature Grid (Matching PDF Pillars) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div
+              class="p-4 rounded-2xl bg-sageBg/70 border border-tealDeep/10 flex items-start gap-4 hover:bg-white hover:shadow-soft transition">
+              <div
+                class="w-12 h-12 rounded-xl bg-tealPrimary text-white flex items-center justify-center shrink-0 text-lg">
+                <i class="fa-solid fa-house-medical-circle-check"></i>
+              </div>
+              <div>
+                <h3 class="text-base font-extrabold text-inkStrong">Professional Home Care</h3>
+                <p class="text-xs sm:text-sm text-inkBody mt-1">Hospital-grade nursing & daily living support right in
+                  the comfort of home.</p>
+              </div>
+            </div>
+
+            <div
+              class="p-4 rounded-2xl bg-sageBg/70 border border-tealDeep/10 flex items-start gap-4 hover:bg-white hover:shadow-soft transition">
+              <div
+                class="w-12 h-12 rounded-xl bg-tealDeep text-tealLight flex items-center justify-center shrink-0 text-lg">
+                <i class="fa-solid fa-user-doctor"></i>
+              </div>
+              <div>
+                <h3 class="text-base font-extrabold text-inkStrong">Experienced Caregivers</h3>
+                <p class="text-xs sm:text-sm text-inkBody mt-1">Background-checked, dementia-trained nurses &
+                  compassionate companions.</p>
+              </div>
+            </div>
+
+            <div
+              class="p-4 rounded-2xl bg-sageBg/70 border border-tealDeep/10 flex items-start gap-4 hover:bg-white hover:shadow-soft transition">
+              <div
+                class="w-12 h-12 rounded-xl bg-tealDeep text-tealLight flex items-center justify-center shrink-0 text-lg">
+                <i class="fa-solid fa-apple-whole"></i>
+              </div>
+              <div>
+                <h3 class="text-base font-extrabold text-inkStrong">Holistic Senior Nutrition</h3>
+                <p class="text-xs sm:text-sm text-inkBody mt-1">Dietitian-designed meals tailored for cardiac, diabetic
+                  & bone health.</p>
+              </div>
+            </div>
+
+            <div
+              class="p-4 rounded-2xl bg-sageBg/70 border border-tealDeep/10 flex items-start gap-4 hover:bg-white hover:shadow-soft transition">
+              <div
+                class="w-12 h-12 rounded-xl bg-tealPrimary text-white flex items-center justify-center shrink-0 text-lg">
+                <i class="fa-solid fa-bell-concierge"></i>
+              </div>
+              <div>
+                <h3 class="text-base font-extrabold text-inkStrong">24/7 Emergency Monitoring</h3>
+                <p class="text-xs sm:text-sm text-inkBody mt-1">Continuous vitals tracking & immediate physician
+                  escalation anytime.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Action & Founder Signature -->
+          <div class="pt-4 flex flex-wrap items-center justify-between gap-6 border-t border-tealDeep/10">
+            <button onclick="openBookingModal('Meet Our Care Coordinator')"
+              class="inline-flex items-center gap-3 bg-tealDeep hover:bg-tealPrimary text-white font-bold text-sm pl-6 pr-2.5 py-2.5 rounded-full transition-all group">
+              <span>Discover Our Care Philosophy</span>
+              <span
+                class="w-8 h-8 rounded-full bg-tealLight text-tealDarker flex items-center justify-center group-hover:rotate-45 transition-transform">
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </span>
+            </button>
+
+            <div class="flex items-center gap-3.5">
+              <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=160&q=80"
+                alt="Dr. Lowson Bourne" class="w-12 h-12 rounded-full object-cover border-2 border-tealPrimary">
+              <div>
+                <div class="text-sm font-extrabold text-inkStrong">Dr. Lowson Bourne, MD</div>
+                <div class="text-xs font-semibold text-tealPrimary">Chief Medical Director</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       5. 6-CARD SENIOR SERVICES GRID (Exact 6 Services from PDF)
+  ========================================================== -->
+  <section id="services" class="py-16 lg:py-24 bg-sageBg border-y border-tealDeep/10">
+    <div class="wide-container">
+      <!-- Section Header -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 lg:mb-16">
+        <div class="max-w-2xl">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-tealPrimary/20 text-xs font-extrabold uppercase tracking-widest text-tealPrimary mb-4">
+            <span class="w-2 h-2 rounded-full bg-tealPrimary"></span>
+            <span>Our Dedicated Senior Care Services</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-inkStrong leading-[1.12]">
+            Specialized Care Designed for <br class="hidden sm:inline">
+            Every Stage of <span class="font-serif italic font-normal text-tealPrimary">Senior Living</span>
+          </h2>
+        </div>
+
+        <p class="text-base text-inkBody max-w-md">
+          Every care plan is supervised by a board-certified geriatrician and adjusted monthly to match your loved one's
+          evolving physical and cognitive needs.
+        </p>
+      </div>
+
+      <!-- 6-Card Wide Grid (3 columns on lg, expansive cards) -->
+      <div id="servicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 xl:gap-8">
+        <!-- Dynamically Populated by JS below for clean maintainability -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       6. FULL-BLEED DARK TEAL SPLIT SECTION
+          ("Enhancing the Quality of Life for Every Senior")
+  ========================================================== -->
+  <section id="why-us" class="py-10 lg:py-14">
+    <div class="full-bleed-wrap bg-tealDeep text-white relative shadow-elevated">
+      <div class="absolute inset-0 bg-dot-light pointer-events-none"></div>
+
+      <div class="wide-container py-16 lg:py-24 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-16 items-center">
+
+          <!-- Left Column: Why Choose Us + Animated Progress Bars + Pillars -->
+          <div class="lg:col-span-6 space-y-7">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-extrabold uppercase tracking-widest text-tealMint">
+              <span class="w-2 h-2 rounded-full bg-tealLight"></span>
+              <span>Why Families Trust Mednix</span>
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-white leading-[1.12]">
+              Enhancing the Quality of <br class="hidden sm:inline">
+              Life for <span class="font-serif italic font-normal text-tealLight">Every Senior</span>
+            </h2>
+
+            <p class="text-tealMint/85 text-base sm:text-lg leading-relaxed">
+              Transitioning to home nursing or assisted senior care is an emotional milestone. We bring clinical
+              precision together with genuine human companionship so seniors feel respected, engaged, and cherished.
+            </p>
+
+            <!-- Highlight Cards matching PDF ("Professional Home Care" & "Experienced Caregivers") -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+              <div class="p-5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                <div class="flex items-center gap-3 mb-2">
+                  <span
+                    class="w-10 h-10 rounded-xl bg-tealLight text-tealDarker flex items-center justify-center font-extrabold">
+                    <i class="fa-solid fa-user-shield"></i>
+                  </span>
+                  <h3 class="font-extrabold text-white text-base">Professional Home Care</h3>
+                </div>
+                <p class="text-xs sm:text-sm text-tealMint/80 leading-relaxed">
+                  Licensed RNs & CNAs delivering medication management, wound care & fall prevention.
+                </p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-white/10 border border-white/15 backdrop-blur-sm">
+                <div class="flex items-center gap-3 mb-2">
+                  <span
+                    class="w-10 h-10 rounded-xl bg-amberWarm text-tealDarker flex items-center justify-center font-extrabold">
+                    <i class="fa-solid fa-hands-holding-circle"></i>
+                  </span>
+                  <h3 class="font-extrabold text-white text-base">Experienced Caregivers</h3>
+                </div>
+                <p class="text-xs sm:text-sm text-tealMint/80 leading-relaxed">
+                  Matched by personality, language, and clinical specialty for lasting family bonds.
+                </p>
+              </div>
+            </div>
+
+            <!-- Animated Progress Bars -->
+            <div class="space-y-5 pt-2">
+              <div>
+                <div class="flex justify-between text-sm font-bold mb-2">
+                  <span class="text-white">Compassionate Skilled Nursing Care</span>
+                  <span class="text-tealLight">98%</span>
+                </div>
+                <div class="w-full h-2.5 bg-white/15 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-tealLight to-emerald-300 rounded-full" style="width: 98%">
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-sm font-bold mb-2">
+                  <span class="text-white">Dementia & Memory Care Family Satisfaction</span>
+                  <span class="text-tealLight">96%</span>
+                </div>
+                <div class="w-full h-2.5 bg-white/15 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-tealLight to-emerald-300 rounded-full" style="width: 96%">
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-sm font-bold mb-2">
+                  <span class="text-white">24/7 Emergency Triage & Physician Access</span>
+                  <span class="text-tealLight">100%</span>
+                </div>
+                <div class="w-full h-2.5 bg-white/15 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-tealLight to-emerald-300 rounded-full" style="width: 100%">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual + Interactive Care Plan Estimator & Quick Booking Card -->
+          <div class="lg:col-span-6">
+            <div class="bg-white text-inkStrong rounded-3xl p-6 sm:p-8 xl:p-10 shadow-elevated border border-white/20">
+              <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-tealDeep/10">
+                <div>
+                  <span class="text-xs font-extrabold uppercase tracking-widest text-tealPrimary block">Interactive Care
+                    Planner</span>
+                  <h3 class="text-2xl font-extrabold text-inkStrong mt-1">Customize Your Senior Care Plan</h3>
+                </div>
+                <span
+                  class="px-3.5 py-1.5 rounded-full bg-sageBg text-tealDeep text-xs font-extrabold flex items-center gap-1.5">
+                  <i class="fa-solid fa-bolt text-amberWarm"></i> Instant Estimate
+                </span>
+              </div>
+
+              <!-- Interactive Estimator Controls -->
+              <div class="space-y-6 mt-6">
+                <!-- Care Level Selector -->
+                <div>
+                  <label class="text-xs font-extrabold uppercase tracking-wider text-inkBody block mb-2.5">
+                    1. Select Primary Care Type
+                  </label>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5" id="careTypeButtons">
+                    <button type="button" data-rate="32" data-name="Personal Care Assistance"
+                      class="care-type-btn active-care px-4 py-3 rounded-xl border-2 border-tealPrimary bg-sageBg text-left transition">
+                      <div class="text-xs font-extrabold text-inkStrong">Personal Care</div>
+                      <div class="text-[11px] text-tealPrimary font-bold mt-0.5">$32 / hr</div>
+                    </button>
+                    <button type="button" data-rate="48" data-name="Home Nursing Care (RN)"
+                      class="care-type-btn px-4 py-3 rounded-xl border-2 border-tealDeep/15 hover:border-tealPrimary text-left transition">
+                      <div class="text-xs font-extrabold text-inkStrong">Home Nursing</div>
+                      <div class="text-[11px] text-inkBody font-bold mt-0.5">$48 / hr</div>
+                    </button>
+                    <button type="button" data-rate="44" data-name="Dementia & Memory Care"
+                      class="care-type-btn px-4 py-3 rounded-xl border-2 border-tealDeep/15 hover:border-tealPrimary text-left transition">
+                      <div class="text-xs font-extrabold text-inkStrong">Memory Care</div>
+                      <div class="text-[11px] text-inkBody font-bold mt-0.5">$44 / hr</div>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Weekly Hours Slider -->
+                <div>
+                  <div class="flex justify-between items-center mb-2">
+                    <label for="hoursRange" class="text-xs font-extrabold uppercase tracking-wider text-inkBody">
+                      2. Weekly Care Hours Needed
+                    </label>
+                    <span id="hoursValue"
+                      class="text-sm font-extrabold text-tealPrimary bg-sageBg px-3 py-1 rounded-lg">25 hrs /
+                      week</span>
+                  </div>
+                  <input id="hoursRange" type="range" min="10" max="80" step="5" value="25"
+                    class="w-full accent-tealPrimary cursor-pointer h-2 bg-sageBg rounded-lg">
+                  <div class="flex justify-between text-[11px] font-semibold text-inkBody mt-1">
+                    <span>10 hrs (Part-time)</span>
+                    <span>40 hrs (Full-time)</span>
+                    <span>80 hrs (Extended)</span>
+                  </div>
+                </div>
+
+                <!-- Estimated Output Box -->
+                <div
+                  class="p-5 rounded-2xl bg-gradient-to-r from-sageBg to-[#E2F1EC] border border-tealPrimary/25 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div>
+                    <span class="text-xs font-bold text-inkBody block">Estimated Weekly Investment</span>
+                    <div class="flex items-baseline gap-2 mt-0.5">
+                      <span id="estimatedTotal" class="text-3xl font-extrabold text-inkStrong">$800</span>
+                      <span class="text-xs font-bold text-tealPrimary">/ week (Insurance & Medicare Eligible)</span>
+                    </div>
+                    <span id="selectedPlanLabel" class="text-xs text-inkBody block mt-1">Plan: Personal Care Assistance
+                      • 25 hrs/wk</span>
+                  </div>
+
+                  <button type="button" onclick="bookEstimatedPlan()"
+                    class="shrink-0 bg-tealPrimary hover:bg-tealDeep text-white font-extrabold text-xs sm:text-sm px-5 py-3.5 rounded-xl shadow-md transition">
+                    Lock In Free Assessment →
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       7. OUR MEDICAL EXPERT DOCTORS ("Supporting Your Loved Ones")
+  ========================================================== -->
+  <section id="doctors" class="py-16 lg:py-24">
+    <div class="wide-container">
+      <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sageBg border border-tealPrimary/20 text-xs font-extrabold uppercase tracking-widest text-tealPrimary mb-4">
+          <span class="w-2 h-2 rounded-full bg-tealPrimary"></span>
+          <span>Our Senior Medical Specialists</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-inkStrong leading-[1.12]">
+          Our Medical Expert Doctors <br class="hidden sm:inline">
+          <span class="font-serif italic font-normal text-tealPrimary">Supporting Your Loved Ones</span>
+        </h2>
+      </div>
+
+      <!-- 4-Column Wide Doctor Grid (Includes Dr. Lowson Bourne, Dr. Harley Marie, Dr. Jeryne Adams from PDF) -->
+      <div id="doctorsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 xl:gap-8">
+        <!-- Populated via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       8. OUR SUCCESSFUL ELDERLY CARE PROGRAMS / PORTFOLIO
+          (Matches PDF tabs: Elderly Care, Post-Hospital Recovery, Senior Wellness, Home Care Support, Senior Emergency)
+  ========================================================== -->
+  <section id="portfolio" class="py-16 lg:py-24 bg-sageBg border-y border-tealDeep/10">
+    <div class="wide-container">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+        <div>
+          <div
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-tealPrimary/20 text-xs font-extrabold uppercase tracking-widest text-tealPrimary mb-4">
+            <span class="w-2 h-2 rounded-full bg-tealPrimary"></span>
+            <span>Our Successful Care Programs</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-inkStrong leading-[1.12]">
+            Explore Our <span class="font-serif italic font-normal text-tealPrimary">Successful</span> Senior Stories
+          </h2>
+        </div>
+
+        <!-- Filter Pills matching PDF -->
+        <div id="portfolioFilters" class="flex flex-wrap gap-2">
+          <button data-filter="all"
+            class="portfolio-tab bg-tealDeep text-white px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
+            All Programs
+          </button>
+          <button data-filter="Elderly Care"
+            class="portfolio-tab bg-white hover:bg-tealPrimary hover:text-white text-inkStrong px-4 py-2 rounded-full text-xs sm:text-sm font-bold border border-tealDeep/10 transition">
+            Elderly Care
+          </button>
+          <button data-filter="Post-Hospital Recovery"
+            class="portfolio-tab bg-white hover:bg-tealPrimary hover:text-white text-inkStrong px-4 py-2 rounded-full text-xs sm:text-sm font-bold border border-tealDeep/10 transition">
+            Post-Hospital Recovery
+          </button>
+          <button data-filter="Senior Wellness"
+            class="portfolio-tab bg-white hover:bg-tealPrimary hover:text-white text-inkStrong px-4 py-2 rounded-full text-xs sm:text-sm font-bold border border-tealDeep/10 transition">
+            Senior Wellness
+          </button>
+          <button data-filter="Home Care Support"
+            class="portfolio-tab bg-white hover:bg-tealPrimary hover:text-white text-inkStrong px-4 py-2 rounded-full text-xs sm:text-sm font-bold border border-tealDeep/10 transition">
+            Home Care Support
+          </button>
+          <button data-filter="Senior Emergency"
+            class="portfolio-tab bg-white hover:bg-tealPrimary hover:text-white text-inkStrong px-4 py-2 rounded-full text-xs sm:text-sm font-bold border border-tealDeep/10 transition">
+            Senior Emergency
+          </button>
+        </div>
+      </div>
+
+      <!-- Wide 5-Card Interactive Showcase Grid -->
+      <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <!-- Populated via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       9. TESTIMONIALS ("Arttu Pereton, Woultu Nick, Sapphiers Rose")
+  ========================================================== -->
+  <section id="testimonials" class="py-16 lg:py-24">
+    <div class="wide-container">
+      <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sageBg border border-tealPrimary/20 text-xs font-extrabold uppercase tracking-widest text-tealPrimary mb-4">
+          <span class="w-2 h-2 rounded-full bg-tealPrimary"></span>
+          <span>Heartfelt Family Testimonials</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-inkStrong leading-[1.12]">
+          Trusted by Thousands of <br class="hidden sm:inline">
+          <span class="font-serif italic font-normal text-tealPrimary">Seniors & Families</span>
+        </h2>
+      </div>
+
+      <div id="testimonialsGrid" class="grid grid-cols-1 lg:grid-cols-3 gap-7 xl:gap-8">
+        <!-- Populated via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       10. LATEST HEALTH INSIGHTS BLOG
+           (Exact 3 articles from PDF)
+  ========================================================== -->
+  <section id="blog" class="py-16 lg:py-24 bg-sageBg/60 border-t border-tealDeep/10">
+    <div class="wide-container">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 lg:mb-16">
+        <div>
+          <div
+            class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-tealPrimary/20 text-xs font-extrabold uppercase tracking-widest text-tealPrimary mb-4">
+            <span class="w-2 h-2 rounded-full bg-tealPrimary"></span>
+            <span>Senior Health Journal</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-inkStrong leading-[1.12]">
+            Latest Health Insights for Your <br class="hidden sm:inline">
+            <span class="font-serif italic font-normal text-tealPrimary">Wellness Journey</span>
+          </h2>
+        </div>
+
+        <a href="#blog"
+          class="inline-flex items-center gap-2.5 text-sm font-extrabold text-tealDeep hover:text-tealPrimary transition">
+          <span>View All Senior Care Guides</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div id="blogGrid" class="grid grid-cols-1 md:grid-cols-3 gap-7 xl:gap-8">
+        <!-- Populated via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       11. INFINITE MEDICAL & SENIOR CARE MARQUEE TICKER (From PDF Bottom)
+  ========================================================== -->
+  <div class="bg-tealPrimary text-white py-5 border-y border-white/15 overflow-hidden select-none">
+    <div class="marquee-track items-center gap-10">
+      <!-- Track duplicated for seamless infinite loop -->
+      <div class="flex items-center gap-10 text-xl sm:text-2xl font-extrabold tracking-wider uppercase">
+        <span>CARDIOLOGY</span><span class="text-tealMint">✦</span>
+        <span>DENTAL CARE</span><span class="text-tealMint">✦</span>
+        <span>PHYSICAL THERAPY</span><span class="text-tealMint">✦</span>
+        <span>HOME NURSING</span><span class="text-tealMint">✦</span>
+        <span>DEMENTIA & MEMORY CARE</span><span class="text-tealMint">✦</span>
+        <span>PALLIATIVE & HOSPICE CARE</span><span class="text-tealMint">✦</span>
+        <span>NUTRITION & MEAL PLANNING</span><span class="text-tealMint">✦</span>
+        <span>GERIATRIC CHECKUPS</span><span class="text-tealMint">✦</span>
+      </div>
+      <div class="flex items-center gap-10 text-xl sm:text-2xl font-extrabold tracking-wider uppercase"
+        aria-hidden="true">
+        <span>CARDIOLOGY</span><span class="text-tealMint">✦</span>
+        <span>DENTAL CARE</span><span class="text-tealMint">✦</span>
+        <span>PHYSICAL THERAPY</span><span class="text-tealMint">✦</span>
+        <span>HOME NURSING</span><span class="text-tealMint">✦</span>
+        <span>DEMENTIA & MEMORY CARE</span><span class="text-tealMint">✦</span>
+        <span>PALLIATIVE & HOSPICE CARE</span><span class="text-tealMint">✦</span>
+        <span>NUTRITION & MEAL PLANNING</span><span class="text-tealMint">✦</span>
+        <span>GERIATRIC CHECKUPS</span><span class="text-tealMint">✦</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       12. FULL-WIDE FOOTER (Matching Mednix PDF Footer)
+  ========================================================== -->
+  <footer id="contact" class="bg-tealDarker text-tealMint/80 pt-16 lg:pt-24 pb-10">
+    <div class="wide-container">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 xl:gap-12 pb-16 border-b border-white/10">
+
+        <!-- Col 1: Brand Info (4 cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <a href="#top" class="flex items-center gap-3.5">
+            <div
+              class="w-12 h-12 rounded-2xl bg-gradient-to-br from-tealLight to-tealPrimary flex items-center justify-center text-tealDarker shadow-glow">
+              <i class="fa-solid fa-hand-holding-medical text-xl"></i>
+            </div>
+            <div>
+              <span class="text-2xl font-extrabold tracking-tight text-white block leading-none">
+                Med<span class="text-tealLight">nix</span>
+              </span>
+              <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-tealMint/70 block mt-1">
+                Elderly Care & Wellness
+              </span>
+            </div>
+          </a>
+
+          <p class="text-sm text-tealMint/75 leading-relaxed max-w-sm">
+            Dedicated to enhancing the quality of life for seniors through compassionate home nursing, memory care,
+            rehabilitation, and 24/7 geriatric medical support.
+          </p>
+
+          <div class="space-y-2 text-sm">
+            <div class="flex items-center gap-3 text-white font-semibold">
+              <i class="fa-solid fa-phone text-tealLight"></i>
+              <span>+1 (800) 456-7890 (24/7 Helpline)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-envelope text-tealLight"></i>
+              <span>support@mednixcare.com</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-location-dot text-tealLight"></i>
+              <span>480 Senior Wellness Blvd, Suite 200, Boston, MA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links (2 cols) -->
+        <div class="lg:col-span-2 space-y-4">
+          <h3 class="text-sm font-extrabold uppercase tracking-wider text-white">Quick Links</h3>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#about" class="hover:text-tealLight transition">About Mednix Care</a></li>
+            <li><a href="#doctors" class="hover:text-tealLight transition">Our Geriatricians</a></li>
+            <li><a href="#portfolio" class="hover:text-tealLight transition">Success Stories</a></li>
+            <li><a href="#testimonials" class="hover:text-tealLight transition">Family Reviews</a></li>
+            <li><a href="#blog" class="hover:text-tealLight transition">Senior Health Blog</a></li>
+            <li><button onclick="openBookingModal('Book Care Visit')"
+                class="hover:text-tealLight transition text-left">Book Care Assessment</button></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Senior Care Departments (3 cols) -->
+        <div class="lg:col-span-3 space-y-4">
+          <h3 class="text-sm font-extrabold uppercase tracking-wider text-white">Senior Care Services</h3>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#services" class="hover:text-tealLight transition">Home Nursing Care</a></li>
+            <li><a href="#services" class="hover:text-tealLight transition">Personal Care Assistance</a></li>
+            <li><a href="#services" class="hover:text-tealLight transition">Dementia & Alzheimer's Care</a></li>
+            <li><a href="#services" class="hover:text-tealLight transition">Palliative & Hospice Care</a></li>
+            <li><a href="#services" class="hover:text-tealLight transition">Nutrition & Meal Planning</a></li>
+            <li><a href="#services" class="hover:text-tealLight transition">Routine Medical Checkups</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Newsletter Subscription (3 cols) -->
+        <div class="lg:col-span-3 space-y-4">
+          <h3 class="text-sm font-extrabold uppercase tracking-wider text-white">Family Care Newsletter</h3>
+          <p class="text-xs sm:text-sm text-tealMint/75 leading-relaxed">
+            Receive doctor-approved senior wellness tips, caregiver guides, and clinic updates every month.
+          </p>
+          <form id="newsletterForm" class="space-y-2.5">
+            <div class="relative">
+              <input id="newsletterEmail" type="email" required placeholder="Enter your email address..."
+                class="w-full px-4 py-3.5 rounded-xl bg-white/10 border border-white/15 text-white placeholder-tealMint/50 text-sm focus:outline-none focus:border-tealLight">
+            </div>
+            <button type="submit"
+              class="w-full py-3.5 rounded-xl bg-tealPrimary hover:bg-tealLight hover:text-tealDarker text-white font-extrabold text-sm transition">
+              Subscribe to Wellness Insights
+            </button>
+          </form>
+          <p id="newsletterFeedback" class="text-xs text-tealLight font-bold hidden">
+            ✓ Thank you! You are subscribed to the Mednix Family Care Journal.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-tealMint/60">
+        <p>© 2026 Mednix Elderly Care & Senior Wellness Center. All Rights Reserved.</p>
+        <div class="flex items-center gap-6">
+          <a href="#top" class="hover:text-white transition">Privacy Policy</a>
+          <a href="#top" class="hover:text-white transition">Patient Rights & HIPAA</a>
+          <a href="#top" class="hover:text-white transition">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       13. INTERACTIVE BOOKING MODAL (NO ALERT() USED)
+  ========================================================== -->
+  <div id="bookingModal"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-tealDarker/75 backdrop-blur-sm p-4">
+    <div
+      class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-elevated border border-tealDeep/10 relative animate-fadeIn">
+      <button onclick="closeBookingModal()" aria-label="Close Modal"
+        class="absolute top-5 right-5 w-10 h-10 rounded-full bg-sageBg text-inkStrong hover:bg-tealDeep hover:text-white flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div
+        class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sageBg text-tealPrimary text-xs font-bold mb-2">
+        <i class="fa-solid fa-calendar-check"></i>
+        <span>24/7 Senior Care Scheduling</span>
+      </div>
+
+      <h3 class="text-2xl font-extrabold text-inkStrong">Schedule a Senior Care Visit</h3>
+      <p id="modalServiceLabel" class="text-xs sm:text-sm font-semibold text-tealPrimary mt-1">
+        Selected Service: General Senior Care Assessment
+      </p>
+
+      <form id="modalBookingForm" class="space-y-4 mt-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-xs font-extrabold uppercase text-inkBody block mb-1">Your Full Name *</label>
+            <input type="text" required placeholder="e.g. Sarah Jenkins"
+              class="w-full px-4 py-3 rounded-xl border border-tealDeep/15 text-sm focus:outline-none focus:border-tealPrimary">
+          </div>
+          <div>
+            <label class="text-xs font-extrabold uppercase text-inkBody block mb-1">Phone Number *</label>
+            <input type="tel" required placeholder="(555) 234-5678"
+              class="w-full px-4 py-3 rounded-xl border border-tealDeep/15 text-sm focus:outline-none focus:border-tealPrimary">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-xs font-extrabold uppercase text-inkBody block mb-1">Care Service Needed</label>
+            <select id="modalServiceSelect"
+              class="w-full px-4 py-3 rounded-xl border border-tealDeep/15 text-sm focus:outline-none focus:border-tealPrimary bg-white">
+              <option>Home Nursing Care</option>
+              <option>Personal Care Assistance</option>
+              <option>Dementia & Alzheimer's Care</option>
+              <option>Palliative & Hospice Care</option>
+              <option>Nutrition & Meal Planning</option>
+              <option>Medical Checkups</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs font-extrabold uppercase text-inkBody block mb-1">Preferred Visit Date</label>
+            <input type="date" required
+              class="w-full px-4 py-3 rounded-xl border border-tealDeep/15 text-sm focus:outline-none focus:border-tealPrimary">
+          </div>
+        </div>
+
+        <div>
+          <label class="text-xs font-extrabold uppercase text-inkBody block mb-1">Notes About Your Loved One</label>
+          <textarea rows="3" placeholder="Share mobility needs, medications, or preferred hours..."
+            class="w-full px-4 py-3 rounded-xl border border-tealDeep/15 text-sm focus:outline-none focus:border-tealPrimary"></textarea>
+        </div>
+
+        <button type="submit"
+          class="w-full py-3.5 rounded-xl bg-tealPrimary hover:bg-tealDeep text-white font-extrabold text-sm shadow-glow transition">
+          Confirm Senior Care Appointment
+        </button>
+      </form>
+
+      <div id="modalSuccessBox"
+        class="hidden mt-4 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm font-semibold">
+        ✓ Your care request has been received! Our Senior Care Coordinator will call you within 30 minutes.
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       JAVASCRIPT: DATA RENDERING & INTERACTIVITY
+  ========================================================== -->
+  <script>
+    // 1. Exact 6 Senior Care Services from the Mednix Elderly Care PDF
+    const SERVICES_DATA = [
+      {
+        num: '01',
+        title: 'Home Nursing Care',
+        desc: 'Registered nurses delivering skilled wound care, IV therapy, medication administration, and chronic illness monitoring right at home.',
+        icon: 'fa-user-nurse',
+        img: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80',
+        tag: '24/7 RN Supervision'
+      },
+      {
+        num: '02',
+        title: 'Personal Care Assistance',
+        desc: 'Respectful, dignified daily assistance with bathing, dressing, safe mobility, hygiene, and joyful companionship for independent living.',
+        icon: 'fa-hands-holding-child',
+        img: 'https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=800&q=80',
+        tag: 'Daily Living Support'
+      },
+      {
+        num: '03',
+        title: 'Dementia & Alzheimer’s Care',
+        desc: 'Certified memory care specialists providing structured routines, cognitive stimulation therapies, and wandering-prevention safety.',
+        icon: 'fa-brain',
+        img: 'https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=800&q=80',
+        tag: 'Memory Care Certified'
+      },
+      {
+        num: '04',
+        title: 'Palliative & Hospice Care',
+        desc: 'Comfort-centered pain and symptom management alongside emotional and spiritual support for seniors and their families.',
+        icon: 'fa-hand-holding-heart',
+        img: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80',
+        tag: 'Comfort & Dignity'
+      },
+      {
+        num: '05',
+        title: 'Nutrition & Meal Planning',
+        desc: 'Clinical dietitians and home caregivers preparing fresh, low-sodium, diabetic-friendly meals that restore energy and immunity.',
+        icon: 'fa-bowl-food',
+        img: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80',
+        tag: 'Geriatric Dietitians'
+      },
+      {
+        num: '06',
+        title: 'Medical Checkups',
+        desc: 'Comprehensive geriatric evaluations, blood panels, cardiac screenings, and physical therapy progress reviews without long clinic waits.',
+        icon: 'fa-stethoscope',
+        img: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=800&q=80',
+        tag: 'Preventive Geriatrics'
+      }
+    ];
+
+    // 2. Doctors Data (Matching names in PDF: Dr. Lowson Bourne, Dr. Harley Marie, Dr. Jeryne Adams + 4th for full-wide grid)
+    const DOCTORS_DATA = [
+      {
+        name: 'Dr. Lowson Bourne',
+        role: 'Chief Geriatrician, MD',
+        exp: '18+ Years Experience',
+        img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Dr. Harley Marie',
+        role: 'Dementia & Neurologist',
+        exp: '14+ Years Experience',
+        img: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Dr. Jeryne Adams',
+        role: 'Palliative Care Director',
+        exp: '16+ Years Experience',
+        img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Dr. Marcus Vance',
+        role: 'Senior Rehab Specialist',
+        exp: '12+ Years Experience',
+        img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80'
+      }
+    ];
+
+    // 3. Portfolio / Care Programs (Exact 5 categories from PDF)
+    const PORTFOLIO_DATA = [
+      {
+        title: 'Comprehensive Assisted Living',
+        category: 'Elderly Care',
+        img: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=700&q=80'
+      },
+      {
+        title: 'Ortho & Cardiac Rehab at Home',
+        category: 'Post-Hospital Recovery',
+        img: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&q=80'
+      },
+      {
+        title: 'Active Mobility & Memory Clubs',
+        category: 'Senior Wellness',
+        img: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=700&q=80'
+      },
+      {
+        title: '24-Hour Live-In Companion Care',
+        category: 'Home Care Support',
+        img: 'https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=700&q=80'
+      },
+      {
+        title: 'Rapid Triage & Fall Response',
+        category: 'Senior Emergency',
+        img: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=700&q=80'
+      }
+    ];
+
+    // 4. Testimonials Data (Exact names from PDF: Arttu Pereton, Woultu Nick, Sapphiers Rose)
+    const TESTIMONIALS_DATA = [
+      {
+        name: 'Arttu Pereton',
+        relation: 'Son of Home Nursing Patient',
+        quote: 'After my father’s hip replacement, Mednix arranged a registered nurse within six hours. Their warmth, punctuality, and physical therapy coordination gave our entire family peace of mind.',
+        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'
+      },
+      {
+        name: 'Woultu Nick',
+        relation: 'Daughter · Memory Care Program',
+        quote: 'Finding compassionate Alzheimer’s care for my mother felt overwhelming until we met Dr. Harley Marie’s team. Mom smiles every morning when her caregiver arrives.',
+        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80'
+      },
+      {
+        name: 'Sapphiers Rose',
+        relation: 'Senior Wellness Resident',
+        quote: 'At 78, I wanted to stay in my own home without feeling isolated. My Mednix companion helps with nutritious meals, walks, and all my checkups—they truly feel like family.',
+        avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
+      }
+    ];
+
+    // 5. Blog Posts (Exact 3 titles from PDF)
+    const BLOG_DATA = [
+      {
+        title: 'Doctor-Approved Ways To Stay Healthy & Active After 65',
+        category: 'Senior Wellness',
+        date: 'Oct 20, 2026',
+        readTime: '5 Min Read',
+        img: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&q=80'
+      },
+      {
+        title: 'What To Expect During Your First Visit To Our Senior Clinic',
+        category: 'Medical Checkups',
+        date: 'Oct 14, 2026',
+        readTime: '6 Min Read',
+        img: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=700&q=80'
+      },
+      {
+        title: 'Telemedicine Or In-Person Care: What’s Best For Seniors?',
+        category: 'Home Nursing',
+        date: 'Oct 08, 2026',
+        readTime: '4 Min Read',
+        img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=700&q=80'
+      }
+    ];
+
+    // Render Services Grid
+    const servicesGrid = document.getElementById('servicesGrid');
+    servicesGrid.innerHTML = SERVICES_DATA.map(s => `
+      <article class="service-card bg-white rounded-3xl overflow-hidden border border-tealDeep/10 shadow-soft hover:shadow-elevated transition-all duration-300 flex flex-col">
+        <div class="relative h-60 overflow-hidden">
+          <img src="${s.img}" alt="${s.title}" class="service-img w-full h-full object-cover transition-transform duration-500"
+               onerror="this.src='https://placehold.co/600x400/0B3B3C/FFFFFF?text=${encodeURIComponent(s.title)}'">
+          <span class="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-xs font-extrabold text-tealDeep shadow-sm">
+            ${s.tag}
+          </span>
+          <span class="absolute top-4 right-4 w-10 h-10 rounded-xl bg-tealDeep/90 text-tealMint text-xs font-extrabold flex items-center justify-center">
+            ${s.num}
+          </span>
+        </div>
+
+        <div class="p-7 flex-1 flex flex-col justify-between relative">
+          <div class="-mt-12 mb-4 w-14 h-14 rounded-2xl bg-tealPrimary text-white flex items-center justify-center text-xl shadow-glow border-4 border-white relative z-10">
+            <i class="fa-solid ${s.icon}"></i>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-extrabold text-inkStrong hover:text-tealPrimary transition">${s.title}</h3>
+            <p class="text-sm text-inkBody leading-relaxed mt-2.5">${s.desc}</p>
+          </div>
+
+          <div class="pt-5 mt-6 border-t border-tealDeep/10 flex items-center justify-between">
+            <button onclick="openBookingModal('${s.title.replace(/'/g, "\\'")}')"
+                    class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-tealDeep hover:text-tealPrimary transition">
+              <span>Request This Service</span>
+              <i class="fa-solid fa-arrow-right text-tealPrimary"></i>
+            </button>
+            <span class="text-xs font-bold text-inkBody/60">Medicare Eligible</span>
+          </div>
+        </div>
+      </article>
+    `).join('');
+
+    // Render Doctors Grid
+    const doctorsGrid = document.getElementById('doctorsGrid');
+    doctorsGrid.innerHTML = DOCTORS_DATA.map(d => `
+      <div class="group bg-sageBg/60 rounded-3xl p-4 border border-tealDeep/10 hover:bg-white hover:shadow-elevated transition-all duration-300">
+        <div class="relative rounded-2xl overflow-hidden aspect-[4/4.6] mb-5">
+          <img src="${d.img}" alt="${d.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+               onerror="this.src='https://placehold.co/500x580/0B3B3C/FFFFFF?text=${encodeURIComponent(d.name)}'">
+          <div class="absolute inset-0 bg-gradient-to-t from-tealDarker/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <button onclick="openBookingModal('Consultation with ${d.name}')"
+                    class="w-full py-2.5 rounded-xl bg-tealLight text-tealDarker font-extrabold text-xs shadow-md">
+              Book Consultation with ${d.name.split(' ')[1]}
+            </button>
+          </div>
+        </div>
+        <div class="px-2 pb-2 text-center">
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-tealPrimary block">${d.role}</span>
+          <h3 class="text-lg font-extrabold text-inkStrong mt-1">${d.name}</h3>
+          <p class="text-xs font-semibold text-inkBody mt-1">${d.exp}</p>
+        </div>
+      </div>
+    `).join('');
+
+    // Render Portfolio Grid & Filter Logic
+    const portfolioGrid = document.getElementById('portfolioGrid');
+    function renderPortfolio(filter = 'all') {
+      const items = filter === 'all'
+        ? PORTFOLIO_DATA
+        : PORTFOLIO_DATA.filter(item => item.category === filter);
+
+      portfolioGrid.innerHTML = items.map(p => `
+        <div class="group relative rounded-3xl overflow-hidden shadow-soft border border-tealDeep/10 aspect-[4/4.7]">
+          <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-tealDarker/90 via-tealDarker/25 to-transparent p-6 flex flex-col justify-end">
+            <span class="text-[11px] font-extrabold uppercase tracking-widest text-tealLight">${p.category}</span>
+            <h3 class="text-lg font-extrabold text-white mt-1 leading-snug">${p.title}</h3>
+          </div>
+        </div>
+      `).join('');
+    }
+    renderPortfolio();
+
+    document.querySelectorAll('.portfolio-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.portfolio-tab').forEach(b => {
+          b.className = 'portfolio-tab bg-white hover:bg-tealPrimary hover:text-white text-inkStrong px-4 py-2 rounded-full text-xs sm:text-sm font-bold border border-tealDeep/10 transition';
+        });
+        btn.className = 'portfolio-tab bg-tealDeep text-white px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition';
+        renderPortfolio(btn.dataset.filter);
+      });
+    });
+
+    // Render Testimonials Grid
+    const testimonialsGrid = document.getElementById('testimonialsGrid');
+    testimonialsGrid.innerHTML = TESTIMONIALS_DATA.map(t => `
+      <div class="bg-sageBg/70 rounded-3xl p-8 border border-tealDeep/10 hover:bg-white hover:shadow-elevated transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-1 text-amberWarm text-sm">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <i class="fa-solid fa-quote-right text-3xl text-tealPrimary/25"></i>
+          </div>
+          <p class="text-base text-inkStrong font-medium leading-relaxed">“${t.quote}”</p>
+        </div>
+
+        <div class="flex items-center gap-4 pt-6 mt-6 border-t border-tealDeep/10">
+          <img src="${t.avatar}" alt="${t.name}" class="w-13 h-13 w-12 h-12 rounded-full object-cover border-2 border-tealPrimary">
+          <div>
+            <h4 class="text-base font-extrabold text-inkStrong">${t.name}</h4>
+            <span class="text-xs font-semibold text-tealPrimary">${t.relation}</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // Render Blog Grid
+    const blogGrid = document.getElementById('blogGrid');
+    blogGrid.innerHTML = BLOG_DATA.map(b => `
+      <article class="bg-white rounded-3xl overflow-hidden border border-tealDeep/10 shadow-soft hover:shadow-elevated transition-all duration-300 group">
+        <div class="relative h-60 overflow-hidden">
+          <img src="${b.img}" alt="${b.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-tealDeep text-tealMint text-xs font-extrabold">
+            ${b.category}
+          </span>
+        </div>
+        <div class="p-7">
+          <div class="flex items-center gap-3 text-xs font-semibold text-inkBody mb-3">
+            <span><i class="fa-regular fa-calendar text-tealPrimary mr-1"></i> ${b.date}</span>
+            <span>•</span>
+            <span><i class="fa-regular fa-clock text-tealPrimary mr-1"></i> ${b.readTime}</span>
+          </div>
+          <h3 class="text-xl font-extrabold text-inkStrong group-hover:text-tealPrimary transition leading-snug">
+            ${b.title}
+          </h3>
+          <button onclick="openBookingModal('Free Senior Health Guide & Consultation')"
+                  class="mt-5 inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-tealPrimary group-hover:gap-3 transition-all">
+            <span>Read Full Medical Article</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </article>
+    `).join('');
+
+    // Interactive Care Cost Estimator Logic
+    let currentRate = 32;
+    let currentPlanName = 'Personal Care Assistance';
+    const hoursRange = document.getElementById('hoursRange');
+    const hoursValue = document.getElementById('hoursValue');
+    const estimatedTotal = document.getElementById('estimatedTotal');
+    const selectedPlanLabel = document.getElementById('selectedPlanLabel');
+
+    function updateEstimator() {
+      const hrs = parseInt(hoursRange.value, 10);
+      hoursValue.textContent = `${hrs} hrs / week`;
+      const total = hrs * currentRate;
+      estimatedTotal.textContent = `$${total.toLocaleString()}`;
+      selectedPlanLabel.textContent = `Plan: ${currentPlanName} • ${hrs} hrs/wk`;
+    }
+
+    document.querySelectorAll('.care-type-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.care-type-btn').forEach(b => {
+          b.classList.remove('border-tealPrimary', 'bg-sageBg');
+          b.classList.add('border-tealDeep/15');
+        });
+        btn.classList.remove('border-tealDeep/15');
+        btn.classList.add('border-tealPrimary', 'bg-sageBg');
+        currentRate = parseInt(btn.dataset.rate, 10);
+        currentPlanName = btn.dataset.name;
+        updateEstimator();
+      });
+    });
+
+    hoursRange.addEventListener('input', updateEstimator);
+
+    function bookEstimatedPlan() {
+      const hrs = hoursRange.value;
+      openBookingModal(`${currentPlanName} (${hrs} hrs/week)`);
+    }
+
+    // Modal Functions
+    const bookingModal = document.getElementById('bookingModal');
+    const modalServiceLabel = document.getElementById('modalServiceLabel');
+    const modalSuccessBox = document.getElementById('modalSuccessBox');
+    const modalBookingForm = document.getElementById('modalBookingForm');
+
+    function openBookingModal(serviceName) {
+      modalServiceLabel.textContent = `Selected Care Plan: ${serviceName}`;
+      modalSuccessBox.classList.add('hidden');
+      bookingModal.classList.remove('hidden');
+      bookingModal.classList.add('flex');
+    }
+
+    function closeBookingModal() {
+      bookingModal.classList.add('hidden');
+      bookingModal.classList.remove('flex');
+    }
+
+    modalBookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      modalSuccessBox.classList.remove('hidden');
+      modalBookingForm.reset();
+    });
+
+    // Close modal on backdrop click
+    bookingModal.addEventListener('click', (e) => {
+      if (e.target === bookingModal) closeBookingModal();
+    });
+
+    // Newsletter Form
+    const newsletterForm = document.getElementById('newsletterForm');
+    const newsletterFeedback = document.getElementById('newsletterFeedback');
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      newsletterFeedback.classList.remove('hidden');
+      newsletterForm.reset();
+    });
+
+    // Mobile Menu Drawer Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileDrawer.classList.add('hidden'));
+    });
+  </script>
+</body>
+
+</html>

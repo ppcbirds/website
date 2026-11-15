@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right Path Hospital & Behavioral Health | San Diego Medical Detox, Residential & Outpatient Rehab</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Instrument Serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="website-two/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Instrument Serif"', 'serif'],
+                    },
+                    colors: {
+                        navy: {
+                            800: '#0C2144',
+                            900: '#07162C',
+                            950: '#040D1A',
+                        },
+                        cyan: {
+                            400: '#22D3EE',
+                            500: '#00A8CC',
+                            600: '#008CAB',
+                            700: '#0369A1',
+                        },
+                        teal: {
+                            50: '#F0FDFA',
+                            500: '#0D9488',
+                            600: '#0F766E',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 15px 45px -10px rgba(7, 22, 44, 0.08)',
+                        'elevated': '0 25px 65px -12px rgba(7, 22, 44, 0.16)',
+                        'cyan-glow': '0 12px 30px -6px rgba(0, 168, 204, 0.45)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    
+    <style>
+        /* ==========================================================================
+           MEDNIX FULL-WIDTH WIDESCREEN ARCHITECTURE (WordPress & Elementor Ready)
+           Eliminates narrow side spacing: 100vw full-bleed + 1720px fluid container
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1E293B;
+            background-color: #FFFFFF;
+        }
+
+        /* Wide 1720px Fluid Container so large monitors have minimal side spacing */
+        .wide-container {
+            width: 100%;
+            max-width: 1720px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: clamp(18px, 3.2vw, 56px);
+            padding-right: clamp(18px, 3.2vw, 56px);
+        }
+
+        /* Full-Bleed Edge-to-Edge Container */
+        .full-bleed {
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        /* ==========================================================================
+           STICKY FULL-WIDTH HEADER & CENTERED MEGA MENU
+           ========================================================================== */
+        .mednix-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            background: rgba(7, 22, 44, 0.94);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            height: 86px;
+        }
+
+        .header-row {
+            height: 86px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            position: relative;
+        }
+
+        .nav-pill-link {
+            white-space: nowrap;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #F8FAFC;
+            padding: 9px 14px;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .nav-pill-link:hover,
+        .nav-pill-link.active,
+        .mega-trigger.open .nav-pill-link {
+            background: #FFFFFF;
+            color: #07162C;
+        }
+
+        /* Full-Width Centered Mega Menu with Hover Bridge */
+        .mega-trigger {
+            position: static;
+            height: 86px;
+            display: flex;
+            align-items: center;
+        }
+
+        .mega-panel-bridge {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            width: min(1480px, 95vw);
+            padding-top: 12px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 9999;
+        }
+
+        .mega-trigger:hover .mega-panel-bridge,
+        .mega-trigger.open .mega-panel-bridge {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .mega-panel-box {
+            background: #FFFFFF;
+            color: #07162C;
+            border-radius: 22px;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 35px 80px -15px rgba(4, 13, 26, 0.38);
+            padding: 30px;
+        }
+
+        /* ==========================================================================
+           MEDNIX SIGNATURE BUTTON (Cyan Pill/Square with White Arrow Box)
+           ========================================================================== */
+        .btn-mednix {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #00A8CC;
+            color: #FFFFFF;
+            font-weight: 800;
+            font-size: 13.5px;
+            padding: 7px 8px 7px 20px;
+            border-radius: 8px;
+            white-space: nowrap;
+            transition: all 0.25s ease;
+        }
+        .btn-mednix:hover {
+            background-color: #07162C;
+            color: #FFFFFF;
+            transform: translateY(-1px);
+        }
+        .btn-mednix .arrow-box {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            background: #FFFFFF;
+            color: #07162C;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.25s ease;
+        }
+        .btn-mednix:hover .arrow-box {
+            transform: translateX(2px) rotate(-45deg);
+        }
+
+        /* ==========================================================================
+           100% FULL-SCREEN EDGE-TO-EDGE MEDNIX HERO BANNER
+           ========================================================================== */
+        .mednix-hero-banner {
+            position: relative;
+            width: 100%;
+            min-height: 780px;
+            background-color: #07162C;
+            background-image: url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=2000&q=85');
+            background-size: cover;
+            background-position: center 20%;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .mednix-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(4, 13, 26, 0.94) 0%, rgba(7, 22, 44, 0.80) 46%, rgba(7, 22, 44, 0.20) 100%);
+        }
+
+        /* Mednix Floating Right Notched White Hero Card */
+        .mednix-notched-card {
+            background: #FFFFFF;
+            border-radius: 18px 18px 0 18px;
+            box-shadow: 0 25px 60px rgba(4, 13, 26, 0.32);
+            position: relative;
+        }
+
+        /* ==========================================================================
+           GIANT IMAGE-MASKED "30+" NUMBER (Mednix "25+" Style)
+           ========================================================================== */
+        .masked-giant-number {
+            font-size: clamp(6rem, 11vw, 11.5rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+            background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=80');
+            background-size: cover;
+            background-position: center;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(7, 22, 44, 0.18);
+            user-select: none;
+        }
+
+        /* ==========================================================================
+           INFINITE GIANT TYPOGRAPHY MARQUEE TICKERS
+           ========================================================================== */
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marqueeScroll 34s linear infinite;
+        }
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* Outlined Giant Text for 24/7 Emergency Marquee */
+        .text-outline-navy {
+            color: transparent;
+            -webkit-text-stroke: 2px #07162C;
+        }
+
+        /* Dotted World Map Background for Appointment Section */
+        .dotted-map-bg {
+            background-color: #F8FAFC;
+            background-image: radial-gradient(#CBD5E1 1.35px, transparent 1.35px);
+            background-size: 22px 22px;
+        }
+    </style>
+
+</head>
+<body class="antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- ==========================================================================
+         1. FULL-BLEED TOP CLINICAL UTILITY BAR (Edge-to-Edge Widescreen)
+         ========================================================================== -->
+    <div class="full-bleed bg-navy-950 text-slate-300 text-xs border-b border-white/10">
+        <div class="wide-container py-2.5 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+                <span class="inline-flex items-center gap-1.5 font-bold text-cyan-400">
+                    <i class="ph-fill ph-seal-check text-sm"></i>
+                    Joint Commission Accredited · Gold Seal of Approval
+                </span>
+                <span class="hidden md:inline text-white/20">|</span>
+                <span class="hidden md:inline-flex items-center gap-1.5">
+                    <i class="ph-fill ph-shield-check text-cyan-400"></i>
+                    State Licensed DHCS #370213BP
+                </span>
+                <span class="hidden xl:inline text-white/20">|</span>
+                <span class="hidden xl:inline-flex items-center gap-1.5">
+                    <i class="ph-fill ph-map-pin text-cyan-400"></i>
+                    San Diego: Mission Valley (8885 Rio San Diego Dr.) &amp; University City (2821 Lange Ave.)
+                </span>
+            </div>
+
+            <div class="flex items-center gap-4 ml-auto">
+                <span class="hidden sm:inline-flex items-center gap-1.5 text-emerald-400 font-bold">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    Admissions 24/7 · Free &amp; Confidential
+                </span>
+                <a href="tel:6196302176" class="inline-flex items-center gap-1.5 bg-cyan-500/20 hover:bg-cyan-500 text-white font-extrabold px-3.5 py-1 rounded-full border border-cyan-400/40 transition">
+                    <i class="ph-fill ph-phone-call"></i> (619) 630-2176
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         2. FULL-BLEED STICKY MEDNIX HEADER WITH 3 WIDE MEGA MENUS
+         ========================================================================== -->
+    <header class="mednix-header" id="site-header">
+        <div class="wide-container header-row">
+            
+            <!-- Left: Brand Logo -->
+            <a href="#" class="flex items-center gap-3 shrink-0 group">
+                <div class="w-11 h-11 rounded-xl bg-cyan-500 flex items-center justify-center text-white shadow-cyan-glow group-hover:scale-105 transition">
+                    <i class="ph-bold ph-first-aid text-2xl"></i>
+                </div>
+                <div class="leading-tight">
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-xl font-extrabold tracking-tight text-white whitespace-nowrap">Right<span class="text-cyan-400">Path</span></span>
+                        <span class="text-[10px] font-extrabold uppercase tracking-wider bg-cyan-500/20 text-cyan-300 px-1.5 py-0.5 rounded border border-cyan-400/30">San Diego</span>
+                    </div>
+                    <span class="block text-[11px] font-medium text-slate-300 whitespace-nowrap">Integrated Behavioral Health Group</span>
+                </div>
+            </a>
+
+            <!-- Center: Single-Line Widescreen Navigation + Mega Menus -->
+            <nav class="hidden xl:flex items-center gap-1.5" aria-label="Main Navigation">
+                <a href="#" class="nav-pill-link active">HOME</a>
+
+                <!-- MEGA MENU 1: GET STARTED -->
+                <div class="mega-trigger">
+                    <button type="button" class="nav-pill-link">
+                        <span>GET STARTED</span>
+                        <i class="ph-bold ph-caret-down text-xs text-cyan-400"></i>
+                    </button>
+                    <div class="mega-panel-bridge">
+                        <div class="mega-panel-box">
+                            <div class="grid grid-cols-12 gap-8">
+                                <div class="col-span-4 border-r border-slate-100 pr-6">
+                                    <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-600 block mb-3">01 · Admissions Process</span>
+                                    <div class="space-y-2.5">
+                                        <a href="#appointment-section" class="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition">
+                                            <span class="w-8 h-8 rounded-lg bg-cyan-500 text-white font-extrabold text-xs flex items-center justify-center shrink-0">01</span>
+                                            <div>
+                                                <p class="text-sm font-extrabold text-navy-900">How Admission Works</p>
+                                                <p class="text-xs text-slate-500">Three steps, starting with one free, confidential phone call.</p>
+                                            </div>
+                                        </a>
+                                        <a href="#appointment-section" class="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition">
+                                            <span class="w-8 h-8 rounded-lg bg-navy-900 text-white font-extrabold text-xs flex items-center justify-center shrink-0">02</span>
+                                            <div>
+                                                <p class="text-sm font-extrabold text-navy-900">What to Expect on Day One</p>
+                                                <p class="text-xs text-slate-500">Warm medical welcome, private suite settling &amp; chef meal.</p>
+                                            </div>
+                                        </a>
+                                        <a href="#case-studies-section" class="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition">
+                                            <span class="w-8 h-8 rounded-lg bg-navy-900 text-white font-extrabold text-xs flex items-center justify-center shrink-0">03</span>
+                                            <div>
+                                                <p class="text-sm font-extrabold text-navy-900">Travel &amp; Free SAN Airport Pickup</p>
+                                                <p class="text-xs text-slate-500">Complimentary pickup from San Diego airport, bus, or train terminal.</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col-span-4 border-r border-slate-100 pr-6">
+                                    <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-600 block mb-3">02 · Insurance &amp; 60-Day Warranty</span>
+                                    <div class="space-y-2.5">
+                                        <button onclick="openInsuranceModal()" class="w-full text-left flex items-start gap-3 p-3.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 transition">
+                                            <i class="ph-fill ph-shield-check text-2xl text-cyan-600 shrink-0 mt-0.5"></i>
+                                            <div>
+                                                <p class="text-sm font-extrabold text-navy-900">Verify Insurance Free &amp; Confidential</p>
+                                                <p class="text-xs text-slate-600">Most major PPO insurance accepted. Instant benefits check.</p>
+                                            </div>
+                                        </button>
+                                        <a href="#dark-holistic-section" class="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition">
+                                            <i class="ph-fill ph-medal text-2xl text-amber-500 shrink-0 mt-0.5"></i>
+                                            <div>
+                                                <p class="text-sm font-extrabold text-navy-900">Our 60-Day Treatment Guarantee</p>
+                                                <p class="text-xs text-slate-500">Complete 60 days; return for 60 days at no cost if you relapse.</p>
+                                            </div>
+                                        </a>
+                                        <a href="#case-studies-section" class="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition">
+                                            <i class="ph-fill ph-buildings text-2xl text-cyan-600 shrink-0 mt-0.5"></i>
+                                            <div>
+                                                <p class="text-sm font-extrabold text-navy-900">Visit or Schedule a Campus Tour</p>
+                                                <p class="text-xs text-slate-500">Tour our University City home or Mission Valley outpatient clinic.</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col-span-4">
+                                    <div class="h-full rounded-2xl bg-navy-900 text-white p-6 flex flex-col justify-between">
+                                        <div>
+                                            <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full mb-3">
+                                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> 24/7 Admissions Team
+                                            </span>
+                                            <h4 class="text-lg font-extrabold leading-snug mb-2">Walking through our doors is often the hardest part.</h4>
+                                            <p class="text-xs text-slate-300 leading-relaxed">
+                                                Our first responsibility is not to rush you into treatment—it is to help you feel safe, heard, and understood.
+                                            </p>
+                                        </div>
+                                        <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between gap-3">
+                                            <a href="tel:6196302176" class="btn-mednix w-full justify-between">
+                                                <span>Call (619) 630-2176</span>
+                                                <span class="arrow-box"><i class="ph-bold ph-phone-call"></i></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MEGA MENU 2: LEVELS OF CARE -->
+                <div class="mega-trigger">
+                    <button type="button" class="nav-pill-link">
+                        <span>LEVELS OF CARE</span>
+                        <i class="ph-bold ph-caret-down text-xs text-cyan-400"></i>
+                    </button>
+                    <div class="mega-panel-bridge">
+                        <div class="mega-panel-box">
+                            <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+                                <div>
+                                    <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-600">One Continuum · Step On Where You Are</span>
+                                    <h4 class="text-base font-extrabold text-navy-900">More Support → More Independence</h4>
+                                </div>
+                                <a href="#services-section" class="text-xs font-extrabold text-cyan-600 hover:underline">Explore All 5 Levels of Care →</a>
+                            </div>
+                            <div class="grid grid-cols-5 gap-4">
+                                <a href="#services-section" onclick="filterCare('detox')" class="p-4 rounded-2xl bg-slate-50 hover:bg-cyan-50 border border-slate-200 hover:border-cyan-500 transition">
+                                    <span class="text-xs font-extrabold px-2 py-0.5 rounded bg-cyan-500 text-white">01</span>
+                                    <p class="font-extrabold text-navy-900 text-sm mt-2">Medical Detox</p>
+                                    <p class="text-[11px] font-bold text-cyan-700 mb-1">Where many people start</p>
+                                    <p class="text-xs text-slate-500">24/7 physician &amp; nursing supervision, low occupancy.</p>
+                                </a>
+                                <a href="#services-section" onclick="filterCare('residential')" class="p-4 rounded-2xl bg-slate-50 hover:bg-cyan-50 border border-slate-200 hover:border-cyan-500 transition">
+                                    <span class="text-xs font-extrabold px-2 py-0.5 rounded bg-navy-900 text-white">02</span>
+                                    <p class="font-extrabold text-navy-900 text-sm mt-2">Residential Care</p>
+                                    <p class="text-[11px] font-bold text-cyan-700 mb-1">30, 60, or 90 Days</p>
+                                    <p class="text-xs text-slate-500">A home, not a ward in University City with on-site chef.</p>
+                                </a>
+                                <a href="#services-section" onclick="filterCare('outpatient')" class="p-4 rounded-2xl bg-slate-50 hover:bg-cyan-50 border border-slate-200 hover:border-cyan-500 transition">
+                                    <span class="text-xs font-extrabold px-2 py-0.5 rounded bg-navy-900 text-white">03</span>
+                                    <p class="font-extrabold text-navy-900 text-sm mt-2">Partial Hospitalization</p>
+                                    <p class="text-[11px] font-bold text-cyan-700 mb-1">About 8 Hours a Day</p>
+                                    <p class="text-xs text-slate-500">Full-day clinical structure at Mission Valley.</p>
+                                </a>
+                                <a href="#services-section" onclick="filterCare('outpatient')" class="p-4 rounded-2xl bg-slate-50 hover:bg-cyan-50 border border-slate-200 hover:border-cyan-500 transition">
+                                    <span class="text-xs font-extrabold px-2 py-0.5 rounded bg-navy-900 text-white">04</span>
+                                    <p class="font-extrabold text-navy-900 text-sm mt-2">Intensive Outpatient</p>
+                                    <p class="text-[11px] font-bold text-cyan-700 mb-1">3 to 5 Days a Week</p>
+                                    <p class="text-xs text-slate-500">Day &amp; evening groups around work or school.</p>
+                                </a>
+                                <a href="#services-section" onclick="filterCare('all')" class="p-4 rounded-2xl bg-slate-50 hover:bg-cyan-50 border border-slate-200 hover:border-cyan-500 transition">
+                                    <span class="text-xs font-extrabold px-2 py-0.5 rounded bg-emerald-600 text-white">05</span>
+                                    <p class="font-extrabold text-navy-900 text-sm mt-2">Aftercare &amp; Alumni</p>
+                                    <p class="text-[11px] font-bold text-cyan-700 mb-1">When Treatment Ends</p>
+                                    <p class="text-xs text-slate-500">24/7/365 hotline, alumni app &amp; monthly events.</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MEGA MENU 3: WHAT WE TREAT -->
+                <div class="mega-trigger">
+                    <button type="button" class="nav-pill-link">
+                        <span>WHAT WE TREAT</span>
+                        <i class="ph-bold ph-caret-down text-xs text-cyan-400"></i>
+                    </button>
+                    <div class="mega-panel-bridge">
+                        <div class="mega-panel-box">
+                            <div class="grid grid-cols-12 gap-8">
+                                <div class="col-span-6 border-r border-slate-100 pr-6">
+                                    <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-600 block mb-3">Substance Use &amp; Medical Detox</span>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <a href="#services-section" class="p-3 rounded-xl hover:bg-slate-50">
+                                            <p class="text-sm font-extrabold text-navy-900">Alcohol Detox &amp; Rehab →</p>
+                                            <p class="text-xs text-slate-500">24/7 medically supervised alcohol detox</p>
+                                        </a>
+                                        <a href="#services-section" class="p-3 rounded-xl hover:bg-slate-50">
+                                            <p class="text-sm font-extrabold text-navy-900">Opioids &amp; Fentanyl →</p>
+                                            <p class="text-xs text-slate-500">Fentanyl, heroin &amp; prescription painkillers</p>
+                                        </a>
+                                        <a href="#services-section" class="p-3 rounded-xl hover:bg-slate-50">
+                                            <p class="text-sm font-extrabold text-navy-900">Stimulants →</p>
+                                            <p class="text-xs text-slate-500">Cocaine, meth &amp; Adderall recovery</p>
+                                        </a>
+                                        <a href="#services-section" class="p-3 rounded-xl hover:bg-slate-50">
+                                            <p class="text-sm font-extrabold text-navy-900">Benzos &amp; Prescriptions →</p>
+                                            <p class="text-xs text-slate-500">Xanax &amp; prescription drug tapering</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-span-6">
+                                    <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-600 block mb-3">Co-Occurring Mental Health (Treated Together)</span>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <a href="#services-section" class="p-3 rounded-xl hover:bg-slate-50">
+                                            <p class="text-sm font-extrabold text-navy-900">Anxiety &amp; Depression →</p>
+                                            <p class="text-xs text-slate-500">CBT, DBT &amp; psychiatric care</p>
+                                        </a>
+                                        <a href="#services-section" class="p-3 rounded-xl hover:bg-slate-50">
+                                            <p class="text-sm font-extrabold text-navy-900">Trauma &amp; PTSD →</p>
+                                            <p class="text-xs text-slate-500">Trauma-informed clinical therapy</p>
+                                        </a>
+                                        <a href="#services-section" class="p-3 rounded-xl hover:bg-slate-50">
+                                            <p class="text-sm font-extrabold text-navy-900">Bipolar Disorder &amp; OCD →</p>
+                                            <p class="text-xs text-slate-500">Medication management &amp; stabilization</p>
+                                        </a>
+                                        <a href="#services-section" class="p-3 rounded-xl hover:bg-slate-50">
+                                            <p class="text-sm font-extrabold text-navy-900">Family Therapy &amp; Interventions →</p>
+                                            <p class="text-xs text-slate-500">In-person or virtual family support</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#dark-holistic-section" class="nav-pill-link">OUR MODEL</a>
+                <a href="#doctors-section" class="nav-pill-link">OUR TEAM</a>
+                <a href="#case-studies-section" class="nav-pill-link">CAMPUSES</a>
+                <a href="#research-section" class="nav-pill-link">RESEARCH</a>
+            </nav>
+
+            <!-- Right: Emergency Phone Block + Mednix Cyan CTA Button + Grid Drawer Icon -->
+            <div class="hidden lg:flex items-center gap-4 shrink-0">
+                <a href="tel:6196302176" class="flex items-center gap-2.5 text-white hover:text-cyan-400 transition whitespace-nowrap">
+                    <span class="w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-cyan-400">
+                        <i class="ph-fill ph-phone-call text-lg"></i>
+                    </span>
+                    <div class="leading-tight">
+                        <span class="block text-[10px] font-bold uppercase tracking-widest text-slate-400">Admissions 24/7</span>
+                        <span class="text-sm font-extrabold">(619) 630-2176</span>
+                    </div>
+                </a>
+
+                <button onclick="openInsuranceModal()" class="btn-mednix shadow-cyan-glow">
+                    <span>Verify Insurance</span>
+                    <span class="arrow-box"><i class="ph-bold ph-arrow-up-right"></i></span>
+                </button>
+            </div>
+
+            <!-- Mobile / Tablet Menu Button -->
+            <div class="flex xl:hidden items-center gap-2">
+                <a href="tel:6196302176" class="px-3 py-2 rounded-lg bg-cyan-500 text-white font-extrabold text-xs">
+                    Call 24/7
+                </a>
+                <button onclick="toggleMobileMenu()" class="w-11 h-11 rounded-xl bg-white/10 text-white flex items-center justify-center" aria-label="Menu">
+                    <i class="ph-bold ph-list text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-drawer" class="hidden xl:hidden bg-navy-950 text-white border-t border-white/10 px-6 py-6 space-y-3">
+            <div class="grid sm:grid-cols-2 gap-2">
+                <a href="#about-section" onclick="toggleMobileMenu()" class="p-3 rounded-xl bg-white/5 font-bold">About &amp; Founder Story</a>
+                <a href="#services-section" onclick="toggleMobileMenu()" class="p-3 rounded-xl bg-white/5 font-bold">01–06 Levels of Care</a>
+                <a href="#dark-holistic-section" onclick="toggleMobileMenu()" class="p-3 rounded-xl bg-white/5 font-bold">The Recovery Quotient™</a>
+                <a href="#doctors-section" onclick="toggleMobileMenu()" class="p-3 rounded-xl bg-white/5 font-bold">Doctors &amp; Leadership</a>
+                <a href="#case-studies-section" onclick="toggleMobileMenu()" class="p-3 rounded-xl bg-white/5 font-bold">San Diego Campuses</a>
+                <a href="#appointment-section" onclick="toggleMobileMenu()" class="p-3 rounded-xl bg-cyan-500 text-white font-extrabold text-center">Verify Insurance Online ↗</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         3. 100% FULL-BLEED EDGE-TO-EDGE MEDNIX HERO BANNER (ZERO SIDE MARGINS)
+         ========================================================================== -->
+    <section class="mednix-hero-banner full-bleed">
+        <div class="mednix-hero-overlay"></div>
+
+        <div class="wide-container relative z-10 py-20 lg:py-28">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+                
+                <!-- Left Column: Hero Headline & Mednix CTAs -->
+                <div class="lg:col-span-8 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-cyan-300 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest">
+                        <i class="ph-fill ph-plus-circle text-cyan-400"></i>
+                        Drug &amp; Alcohol Rehab in San Diego · Integrated Behavioral Health Group
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl xl:text-[68px] font-extrabold text-white tracking-tight leading-[1.06]">
+                        Your Trusted Partner in Recovery &amp; Wellness — <br class="hidden sm:inline">
+                        <span class="font-serif italic font-normal text-cyan-300">Measured By What Happens After You Leave.</span>
+                    </h1>
+
+                    <p class="text-slate-200 text-base sm:text-xl leading-relaxed max-w-3xl">
+                        24/7 Medical Detox, Residential Care, Partial Hospitalization (PHP), and Day or Evening Outpatient here in San Diego. One connected clinical program that keeps track of how you’re doing during treatment—and long after it ends.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-3">
+                        <button onclick="openInsuranceModal()" class="btn-mednix text-base py-2.5 pl-6 pr-2.5 shadow-cyan-glow">
+                            <span>Verify Your Insurance</span>
+                            <span class="arrow-box w-10 h-10"><i class="ph-bold ph-arrow-up-right text-lg"></i></span>
+                        </button>
+
+                        <a href="tel:6196302176" class="inline-flex items-center gap-3 bg-white/10 hover:bg-white text-white hover:text-navy-900 font-extrabold text-sm sm:text-base px-6 py-3.5 rounded-lg border border-white/25 backdrop-blur-md transition">
+                            <i class="ph-fill ph-phone-call text-cyan-400 text-xl"></i>
+                            <span>Call 24/7: (619) 630-2176</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Strip -->
+                    <div class="pt-8 border-t border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl">
+                        <div>
+                            <p class="text-xs font-extrabold uppercase tracking-wider text-cyan-400">Accreditation</p>
+                            <p class="text-sm font-bold text-white mt-0.5">Joint Commission Gold Seal</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-extrabold uppercase tracking-wider text-cyan-400">State Licensed</p>
+                            <p class="text-sm font-bold text-white mt-0.5">DHCS #370213BP</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-extrabold uppercase tracking-wider text-cyan-400">Two San Diego Campuses</p>
+                            <p class="text-sm font-bold text-white mt-0.5">Mission Valley &amp; University City</p>
+                        </div>
+                        <div>
+                            <p class="text-xs font-extrabold uppercase tracking-wider text-cyan-400">Treatment Guarantee</p>
+                            <p class="text-sm font-bold text-white mt-0.5">60-Day Relapse Warranty</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Exact Mednix Floating White Notched Card -->
+                <div class="lg:col-span-4 flex lg:justify-end">
+                    <div class="mednix-notched-card p-7 max-w-sm w-full text-navy-900 border-t-4 border-cyan-500">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full">
+                                Free &amp; Confidential
+                            </span>
+                            <span class="text-amber-500 font-extrabold text-xs flex items-center gap-1">
+                                <i class="ph-fill ph-star"></i> 4.9 (560+ Reviews)
+                            </span>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-navy-900 leading-snug mb-2">
+                            Dedicated 24/7 San Diego Medical &amp; Psychiatric Team
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-5">
+                            Low occupancy means you get personal attention, not just a bed. Verify your PPO insurance benefits in under 2 minutes.
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                            <button onclick="openInsuranceModal()" class="btn-mednix">
+                                <span>Check Coverage</span>
+                                <span class="arrow-box"><i class="ph-bold ph-arrow-up-right"></i></span>
+                            </button>
+                            <button onclick="openFounderModal()" class="w-11 h-11 rounded-full bg-navy-900 hover:bg-cyan-500 text-white flex items-center justify-center transition" title="Watch Dr. Peloquin's Welcome">
+                                <i class="ph-fill ph-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. WIDE ASYMMETRIC "CARING FOR YOU LIKE FAMILY HEALTH" + GIANT "30+" SECTION
+         ========================================================================== -->
+    <section id="about-section" class="py-20 lg:py-28 full-bleed">
+        <div class="wide-container">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-center">
+                
+                <!-- Left 7 Cols: Title + Team Photo + Overlapping Cyan Feature Card -->
+                <div class="lg:col-span-7 relative">
+                    <div class="mb-6 max-w-xl">
+                        <span class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-cyan-600 mb-2">
+                            <i class="ph-fill ph-plus-circle"></i> OUR STORY · WHY WE'RE HERE
+                        </span>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold text-navy-900 leading-tight">
+                            Caring For You Like <br>
+                            <span class="font-serif italic font-normal text-cyan-600">Family Health &amp; Recovery</span>
+                        </h2>
+                    </div>
+
+                    <!-- Overlapping Cyan Box (Top Right on Desktop, just like Mednix) -->
+                    <div class="lg:absolute lg:top-2 lg:right-0 z-20 bg-cyan-500 text-white rounded-2xl p-6 sm:p-7 shadow-cyan-glow max-w-xs mb-6 lg:mb-0">
+                        <h3 class="text-base font-extrabold mb-3 leading-snug">
+                            Whole-Person Care &amp; Clinical Supervision:
+                        </h3>
+                        <ul class="space-y-2 text-xs font-bold">
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check-circle text-lg"></i> 24/7 Medical Detox &amp; Psychiatry</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check-circle text-lg"></i> Low Occupancy Personal Attention</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check-circle text-lg"></i> Videra Health Recovery Quotient™</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check-circle text-lg"></i> Free SAN Airport &amp; Train Pickup</li>
+                        </ul>
+                    </div>
+
+                    <!-- Large Group Photo of Doctors & Care Team -->
+                    <div class="rounded-3xl overflow-hidden shadow-elevated border border-slate-100 lg:mr-16">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=85" 
+                             alt="Right Path San Diego Clinical Team" 
+                             class="w-full h-[360px] sm:h-[440px] object-cover">
+                    </div>
+                </div>
+
+                <!-- Right 5 Cols: Giant Image-Masked "30+" + Founder Dr. John Peloquin Quote -->
+                <div class="lg:col-span-5 space-y-5">
+                    <div class="flex items-baseline gap-4">
+                        <div class="masked-giant-number">30+</div>
+                    </div>
+
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-navy-900">
+                        Years Redefining Behavioral Healthcare &amp; Lasting Recovery Outcomes
+                    </h3>
+
+                    <blockquote class="p-5 rounded-2xl bg-slate-50 border-l-4 border-cyan-500 text-slate-700 text-sm sm:text-base italic leading-relaxed">
+                        “We don’t want to measure our success by how many people come through our doors. We want to measure it by what happens after they leave. Recovery should extend beyond treatment, with a focus on lasting well-being, meaningful outcomes, and helping individuals build lives they can truly thrive in.”
+                        <footer class="not-italic font-extrabold text-navy-900 mt-2 text-xs uppercase tracking-wider">
+                            — John Peloquin, PhD, MBA · Founder &amp; CEO, Right Path Recovery &amp; IBHG
+                        </footer>
+                    </blockquote>
+
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Already in outpatient care, or coming back after a lapse? You can re-engage with non-judgmental support. A clinician confirms the right level of care in a free, confidential assessment.
+                    </p>
+
+                    <div class="pt-2 flex flex-wrap items-center gap-4">
+                        <button onclick="openFounderModal()" class="btn-mednix">
+                            <span>Watch Founder Story</span>
+                            <span class="arrow-box"><i class="ph-fill ph-play"></i></span>
+                        </button>
+                        <a href="#services-section" class="text-sm font-extrabold text-navy-900 hover:text-cyan-600">
+                            Help Me Choose a Level of Care →
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. EDGE-TO-EDGE GIANT TYPOGRAPHY MARQUEE TICKER (Mednix "CARDIOLOGY * DENTAL")
+         ========================================================================== -->
+    <div class="full-bleed py-6 border-y border-slate-200/80 bg-white overflow-hidden">
+        <div class="marquee-track flex items-center gap-10">
+            <span class="text-5xl sm:text-7xl lg:text-[84px] font-black tracking-tight text-navy-900 uppercase">MEDICAL DETOX</span>
+            <i class="ph-fill ph-asterisk text-4xl sm:text-5xl text-cyan-500"></i>
+            <span class="text-5xl sm:text-7xl lg:text-[84px] font-black tracking-tight text-cyan-500 uppercase">RESIDENTIAL CARE</span>
+            <i class="ph-fill ph-asterisk text-4xl sm:text-5xl text-navy-900"></i>
+            <span class="text-5xl sm:text-7xl lg:text-[84px] font-black tracking-tight text-navy-900 uppercase">PARTIAL HOSPITALIZATION</span>
+            <i class="ph-fill ph-asterisk text-4xl sm:text-5xl text-cyan-500"></i>
+            <span class="text-5xl sm:text-7xl lg:text-[84px] font-black tracking-tight text-cyan-500 uppercase">INTENSIVE OUTPATIENT</span>
+            <i class="ph-fill ph-asterisk text-4xl sm:text-5xl text-navy-900"></i>
+            <span class="text-5xl sm:text-7xl lg:text-[84px] font-black tracking-tight text-navy-900 uppercase">DUAL DIAGNOSIS</span>
+            <i class="ph-fill ph-asterisk text-4xl sm:text-5xl text-cyan-500"></i>
+            <!-- Duplicate for seamless loop -->
+            <span class="text-5xl sm:text-7xl lg:text-[84px] font-black tracking-tight text-navy-900 uppercase">MEDICAL DETOX</span>
+            <i class="ph-fill ph-asterisk text-4xl sm:text-5xl text-cyan-500"></i>
+            <span class="text-5xl sm:text-7xl lg:text-[84px] font-black tracking-tight text-cyan-500 uppercase">RESIDENTIAL CARE</span>
+            <i class="ph-fill ph-asterisk text-4xl sm:text-5xl text-navy-900"></i>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         6. WIDE 6-CARD CLINICAL SERVICES & CONTINUUM OF CARE (Mednix Bordered Grid)
+         ========================================================================== -->
+    <section id="services-section" class="py-20 lg:py-28 full-bleed bg-slate-50/60">
+        <div class="wide-container">
+            
+            <!-- Header + Interactive Filter Pills -->
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
+                <div>
+                    <span class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-cyan-600 mb-2">
+                        <i class="ph-fill ph-plus-circle"></i> LEVELS OF CARE · WHAT WE TREAT
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-navy-900 leading-tight">
+                        Comprehensive Behavioral &amp; Medical <br>
+                        Services For <span class="font-serif italic font-normal text-cyan-600">Your Lasting Recovery</span>
+                    </h2>
+                </div>
+
+                <!-- Dynamic Filter Tabs -->
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterCare('all')" data-care="all" class="care-tab bg-navy-900 text-white text-xs font-extrabold px-5 py-2.5 rounded-lg transition">
+                        All Programs (01–06)
+                    </button>
+                    <button onclick="filterCare('detox')" data-care="detox" class="care-tab bg-white hover:bg-cyan-50 text-navy-900 text-xs font-extrabold px-5 py-2.5 rounded-lg border border-slate-200 transition">
+                        01 · Medical Detox
+                    </button>
+                    <button onclick="filterCare('residential')" data-care="residential" class="care-tab bg-white hover:bg-cyan-50 text-navy-900 text-xs font-extrabold px-5 py-2.5 rounded-lg border border-slate-200 transition">
+                        02 · Residential
+                    </button>
+                    <button onclick="filterCare('outpatient')" data-care="outpatient" class="care-tab bg-white hover:bg-cyan-50 text-navy-900 text-xs font-extrabold px-5 py-2.5 rounded-lg border border-slate-200 transition">
+                        03–04 · PHP &amp; IOP
+                    </button>
+                    <button onclick="filterCare('dual')" data-care="dual" class="care-tab bg-white hover:bg-cyan-50 text-navy-900 text-xs font-extrabold px-5 py-2.5 rounded-lg border border-slate-200 transition">
+                        05–06 · Dual Diagnosis &amp; Alumni
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mednix 6-Column Bordered Grid with Featured Photo Card -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-white rounded-3xl shadow-soft border border-slate-200/90 divide-y md:divide-y-0 md:divide-x divide-slate-200/80 overflow-hidden">
+                
+                <!-- Card 01 -->
+                <div data-care-item="detox" class="p-8 xl:p-10 hover:bg-slate-50/80 transition flex flex-col justify-between border-b border-slate-200/80">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-14 h-14 rounded-xl bg-cyan-500 text-white flex items-center justify-center shadow-cyan-glow">
+                                <i class="ph-duotone ph-heartbeat text-3xl"></i>
+                            </div>
+                            <span class="text-xs font-extrabold uppercase tracking-wider bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full">Level 01 · Detox</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-navy-900 mb-3">24/7 Medical Detoxification</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                            Medical staff provide 24/7 supervision, support, and whole-person care for alcohol, opioids, fentanyl, and benzodiazepines. Low occupancy means personal attention, not just a bed.
+                        </p>
+                    </div>
+                    <a href="#appointment-section" class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-navy-900 hover:text-cyan-600">
+                        <span>Explore Medical Detox</span>
+                        <i class="ph-bold ph-arrow-up-right text-cyan-500 text-base"></i>
+                    </a>
+                </div>
+
+                <!-- Card 02 -->
+                <div data-care-item="residential" class="p-8 xl:p-10 hover:bg-slate-50/80 transition flex flex-col justify-between border-b border-slate-200/80">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-14 h-14 rounded-xl bg-cyan-500 text-white flex items-center justify-center shadow-cyan-glow">
+                                <i class="ph-duotone ph-house-line text-3xl"></i>
+                            </div>
+                            <span class="text-xs font-extrabold uppercase tracking-wider bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full">Level 02 · 30–90 Days</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-navy-900 mb-3">Residential Care (University City)</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                            “We’re in a residential neighborhood, so it really feels more like a home.” Private furnished rooms, on-site Navy-veteran chef, family-style dining, backyard gym, and weekly outings.
+                        </p>
+                    </div>
+                    <a href="#appointment-section" class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-navy-900 hover:text-cyan-600">
+                        <span>Explore Residential Sanctuary</span>
+                        <i class="ph-bold ph-arrow-up-right text-cyan-500 text-base"></i>
+                    </a>
+                </div>
+
+                <!-- Card 03 -->
+                <div data-care-item="outpatient" class="p-8 xl:p-10 hover:bg-slate-50/80 transition flex flex-col justify-between border-b border-slate-200/80">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-14 h-14 rounded-xl bg-cyan-500 text-white flex items-center justify-center shadow-cyan-glow">
+                                <i class="ph-duotone ph-sun-horizon text-3xl"></i>
+                            </div>
+                            <span class="text-xs font-extrabold uppercase tracking-wider bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full">Level 03 · ~8 Hrs/Day</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-navy-900 mb-3">Partial Hospitalization (PHP)</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                            Structured full-day clinical therapy, psychiatric medication management, and weekly Recovery Quotient™ goal reviews in Mission Valley while sleeping in your own home or sober living.
+                        </p>
+                    </div>
+                    <a href="#appointment-section" class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-navy-900 hover:text-cyan-600">
+                        <span>Explore PHP Program</span>
+                        <i class="ph-bold ph-arrow-up-right text-cyan-500 text-base"></i>
+                    </a>
+                </div>
+
+                <!-- Card 04 -->
+                <div data-care-item="outpatient" class="p-8 xl:p-10 hover:bg-slate-50/80 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-14 h-14 rounded-xl bg-cyan-500 text-white flex items-center justify-center shadow-cyan-glow">
+                                <i class="ph-duotone ph-calendar-check text-3xl"></i>
+                            </div>
+                            <span class="text-xs font-extrabold uppercase tracking-wider bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full">Level 04 · 3–5 Days/Wk</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-navy-900 mb-3">Intensive Outpatient (Day/Evening IOP)</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                            Treatment that fits around your life in Mission Valley (8885 Rio San Diego Dr.). Day and evening groups so you can keep working, studying, or caring for family.
+                        </p>
+                    </div>
+                    <a href="#appointment-section" class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-navy-900 hover:text-cyan-600">
+                        <span>Explore Day &amp; Evening IOP</span>
+                        <i class="ph-bold ph-arrow-up-right text-cyan-500 text-base"></i>
+                    </a>
+                </div>
+
+                <!-- Card 05 (Mednix Featured Card with Inline Photo beside Icon) -->
+                <div data-care-item="dual" class="p-8 xl:p-10 bg-white shadow-elevated relative z-10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 rounded-xl bg-cyan-500 text-white flex items-center justify-center shrink-0 shadow-cyan-glow">
+                                <i class="ph-duotone ph-brain text-3xl"></i>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=400&q=80" 
+                                 alt="Dual Diagnosis Therapy" 
+                                 class="h-14 w-36 object-cover rounded-xl border border-slate-200">
+                        </div>
+                        <h3 class="text-xl font-extrabold text-navy-900 mb-3">Dual-Diagnosis Mental Health</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                            Addiction and mental health treated together: CBT, DBT, ACT, Motivational Interviewing, SMART Recovery, trauma-informed care, and psychiatric care for anxiety, depression, PTSD &amp; bipolar.
+                        </p>
+                    </div>
+                    <a href="#appointment-section" class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-cyan-600 hover:text-navy-900">
+                        <span>See Everything We Treat (A–Z)</span>
+                        <i class="ph-bold ph-arrow-up-right text-base"></i>
+                    </a>
+                </div>
+
+                <!-- Card 06 -->
+                <div data-care-item="dual" class="p-8 xl:p-10 hover:bg-slate-50/80 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-14 h-14 rounded-xl bg-cyan-500 text-white flex items-center justify-center shadow-cyan-glow">
+                                <i class="ph-duotone ph-users-three text-3xl"></i>
+                            </div>
+                            <span class="text-xs font-extrabold uppercase tracking-wider bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full">Level 05 · Lifelong</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-navy-900 mb-3">Family Program &amp; 24/7/365 Alumni</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                            Family therapy &amp; intervention support, plus a 24/7/365 alumni hotline, alumni app, relapse-prevention groups, and monthly San Diego community outings when treatment ends.
+                        </p>
+                    </div>
+                    <a href="#appointment-section" class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-navy-900 hover:text-cyan-600">
+                        <span>Explore Family &amp; Alumni Care</span>
+                        <i class="ph-bold ph-arrow-up-right text-cyan-500 text-base"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. 100% FULL-BLEED DARK NAVY SPLIT SECTION + PROGRESS BARS + CYAN TICKER
+         ========================================================================== -->
+    <section id="dark-holistic-section" class="full-bleed bg-navy-900 text-white overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+            
+            <!-- Left 5 Cols: Edge-to-Edge Full-Bleed Medical Technology Image -->
+            <div class="lg:col-span-5 relative min-h-[420px] lg:min-h-[640px]">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=85" 
+                     alt="The Recovery Quotient Videra Health Technology" 
+                     class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-navy-900/20 to-navy-900 hidden lg:block"></div>
+                <div class="absolute bottom-6 left-6 right-6 bg-navy-950/90 backdrop-blur-md border border-cyan-400/30 rounded-2xl p-5">
+                    <span class="text-[11px] font-extrabold uppercase tracking-widest text-cyan-400 block">IBHG × Videra Health</span>
+                    <p class="text-base font-extrabold text-white mt-0.5">The Recovery Quotient™ Metric System</p>
+                    <p class="text-xs text-slate-300 mt-1">Measurement does not replace clinical judgment—it strengthens it.</p>
+                </div>
+            </div>
+
+            <!-- Right 7 Cols: Holistic Content + 3 Feature Columns + 3 Animated Progress Bars -->
+            <div class="lg:col-span-7 py-16 lg:py-24 px-6 sm:px-12 xl:px-20 flex flex-col justify-between">
+                <div class="grid grid-cols-1 xl:grid-cols-12 gap-10 items-start">
+                    
+                    <!-- Sub-col Left -->
+                    <div class="xl:col-span-6 space-y-5">
+                        <span class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-cyan-400">
+                            <i class="ph-fill ph-plus-circle"></i> MEASUREMENT MATTERS
+                        </span>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight">
+                            Holistic Care With <br>
+                            <span class="font-serif italic font-normal text-cyan-400">The Recovery Quotient™</span>
+                        </h2>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Developed by <strong>Integrated Behavioral Health Group</strong> and <strong>Videra Health</strong>, our model tracks your progress before, during, and after treatment—so we can reach out before you show signs of struggle.
+                        </p>
+                        <div class="pt-2">
+                            <button onclick="openInsuranceModal()" class="btn-mednix">
+                                <span>Verify Insurance Now</span>
+                                <span class="arrow-box"><i class="ph-bold ph-arrow-up-right"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Sub-col Right: 3 Icon Feature Blocks (Exact Mednix Layout) -->
+                    <div class="xl:col-span-6 space-y-5 border-t xl:border-t-0 xl:border-l border-white/10 pt-6 xl:pt-0 xl:pl-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-white/10 text-cyan-400 flex items-center justify-center shrink-0">
+                                <i class="ph-duotone ph-chart-line-up text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-white text-base">i. Personalized Care &amp; Progress Tracking</h4>
+                                <p class="text-xs text-slate-300 mt-1">Weekly well-being check-ins, standardized symptom &amp; craving assessments, and goal reviews.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-white/10 text-cyan-400 flex items-center justify-center shrink-0">
+                                <i class="ph-duotone ph-shield-check text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-white text-base">ii. Proactive Relapse-Risk Reviews</h4>
+                                <p class="text-xs text-slate-300 mt-1">Done collaboratively with you alongside participation and skill-practice tracking.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-white/10 text-cyan-400 flex items-center justify-center shrink-0">
+                                <i class="ph-duotone ph-medal text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-white text-base">iii. 60-Day Relapse Response Guarantee</h4>
+                                <p class="text-xs text-slate-300 mt-1">Complete 60 days of treatment; return for an additional 60 days at no cost if relapse occurs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bottom 3 Horizontal Progress Bars (Exact Mednix Bottom Row) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 mt-12 border-t border-white/15">
+                    <div>
+                        <div class="flex items-center justify-between text-xs font-extrabold mb-2">
+                            <span class="text-cyan-400 text-base">96%</span>
+                            <span class="text-slate-200">Detox &amp; Stabilization Completion</span>
+                        </div>
+                        <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+                            <div class="h-full bg-cyan-400 rounded-full w-[96%]"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between text-xs font-extrabold mb-2">
+                            <span class="text-cyan-400 text-base">98%</span>
+                            <span class="text-slate-200">Patient &amp; Family Satisfaction</span>
+                        </div>
+                        <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+                            <div class="h-full bg-cyan-400 rounded-full w-[98%]"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between text-xs font-extrabold mb-2">
+                            <span class="text-cyan-400 text-base">100%</span>
+                            <span class="text-slate-200">60-Day Warranty Protection</span>
+                        </div>
+                        <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+                            <div class="h-full bg-emerald-400 rounded-full w-full"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Edge-to-Edge Cyan Sub-Ticker Ribbon (Mednix Cyan Bar) -->
+        <div class="full-bleed bg-cyan-500 text-white py-3.5 overflow-hidden border-t border-white/20">
+            <div class="marquee-track flex items-center gap-8 text-xs sm:text-sm font-extrabold uppercase tracking-widest">
+                <span>CBT &amp; DBT THERAPY</span><span>✻</span>
+                <span>MOTIVATIONAL INTERVIEWING</span><span>✻</span>
+                <span>ACCEPTANCE &amp; COMMITMENT THERAPY</span><span>✻</span>
+                <span>TRAUMA-INFORMED CARE</span><span>✻</span>
+                <span>SMART RECOVERY</span><span>✻</span>
+                <span>PSYCHIATRIC MEDICATION MANAGEMENT</span><span>✻</span>
+                <span>YOGA, FITNESS &amp; MINDFULNESS</span><span>✻</span>
+                <span>CHEF-PREPARED NUTRITION</span><span>✻</span>
+                <span>CBT &amp; DBT THERAPY</span><span>✻</span>
+                <span>MOTIVATIONAL INTERVIEWING</span><span>✻</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. WIDE 4-COLUMN DOCTORS & CLINICAL LEADERSHIP + OUTLINED 24/7 MARQUEE
+         ========================================================================== -->
+    <section id="doctors-section" class="pt-20 lg:pt-28 pb-12 full-bleed">
+        <div class="wide-container">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-cyan-600 mb-2">
+                    <i class="ph-fill ph-plus-circle"></i> OUR TEAM · THE PEOPLE BEHIND YOUR CARE
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-navy-900">
+                    Meet the Dedicated Experts <br>
+                    Behind <span class="font-serif italic font-normal text-cyan-600">Your Care</span>
+                </h2>
+                <p class="text-sm sm:text-base text-slate-600 mt-3">
+                    The same leadership team runs Right Path and Integrated Behavioral Health Group. On the floor, many of our staff members have walked in your shoes.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Member 1 -->
+                <div class="group">
+                    <div class="relative rounded-3xl overflow-hidden bg-slate-100 h-80 sm:h-96 mb-4 shadow-soft">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=700&q=85" 
+                             alt="John Peloquin, PhD, MBA" 
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
+                        <button onclick="openFounderModal()" class="absolute bottom-4 right-4 w-11 h-11 rounded-full bg-navy-900 group-hover:bg-cyan-500 text-white flex items-center justify-center shadow-lg transition">
+                            <i class="ph-bold ph-plus text-lg"></i>
+                        </button>
+                    </div>
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-600">Founder &amp; CEO · 30+ Years Exp</span>
+                    <h3 class="text-lg font-extrabold text-navy-900">John Peloquin, PhD, MBA</h3>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="group">
+                    <div class="relative rounded-3xl overflow-hidden bg-slate-100 h-80 sm:h-96 mb-4 shadow-soft">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=700&q=85" 
+                             alt="Dr. Troy Kurz, MD, MS" 
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
+                        <a href="#appointment-section" class="absolute bottom-4 right-4 w-11 h-11 rounded-full bg-navy-900 group-hover:bg-cyan-500 text-white flex items-center justify-center shadow-lg transition">
+                            <i class="ph-bold ph-plus text-lg"></i>
+                        </a>
+                    </div>
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-600">Chief Medical Officer · Board-Certified Psychiatrist</span>
+                    <h3 class="text-lg font-extrabold text-navy-900">Dr. Troy Kurz, MD, MS</h3>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="group">
+                    <div class="relative rounded-3xl overflow-hidden bg-slate-100 h-80 sm:h-96 mb-4 shadow-soft">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=700&q=85" 
+                             alt="Chris Diamond - COO" 
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
+                        <a href="#appointment-section" class="absolute bottom-4 right-4 w-11 h-11 rounded-full bg-navy-900 group-hover:bg-cyan-500 text-white flex items-center justify-center shadow-lg transition">
+                            <i class="ph-bold ph-plus text-lg"></i>
+                        </a>
+                    </div>
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-600">Chief Operations Officer · 35+ Years Exp</span>
+                    <h3 class="text-lg font-extrabold text-navy-900">Chris Diamond</h3>
+                </div>
+
+                <!-- Member 4 -->
+                <div class="group">
+                    <div class="relative rounded-3xl overflow-hidden bg-slate-100 h-80 sm:h-96 mb-4 shadow-soft">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=85" 
+                             alt="Alyson Albano, M.S., LMFT, PMH-C" 
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500">
+                        <a href="#appointment-section" class="absolute bottom-4 right-4 w-11 h-11 rounded-full bg-navy-900 group-hover:bg-cyan-500 text-white flex items-center justify-center shadow-lg transition">
+                            <i class="ph-bold ph-plus text-lg"></i>
+                        </a>
+                    </div>
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-600">VP of Clinical Operations · 18+ Years Exp</span>
+                    <h3 class="text-lg font-extrabold text-navy-900">Alyson Albano, LMFT, PMH-C</h3>
+                </div>
+            </div>
+
+            <p class="text-center text-xs sm:text-sm font-semibold text-slate-500 mt-8">
+                Also on our leadership &amp; care team: <strong>Catherine Mann</strong> (VP of Clinical Outreach, 13+ yrs) · <strong>Janelle Neeley, APCC #18963</strong> (Primary Therapist) · <strong>Jaimie McMillan</strong> (BHT Supervisor) · <strong>Cassondra Pallotto</strong> &amp; <strong>Adam Figueroa, BSP</strong> · <strong>Chef Devon Deaton</strong>.
+            </p>
+        </div>
+
+        <!-- Giant Outlined "24/7 EMERGENCY" Marquee (Exact Mednix Divider) -->
+        <div class="full-bleed mt-16 py-4 overflow-hidden">
+            <div class="marquee-track flex items-center gap-12">
+                <span class="text-5xl sm:text-7xl lg:text-[82px] font-black uppercase text-navy-900">24/7 ADMISSIONS HELPLINE (619) 630-2176</span>
+                <span class="text-5xl sm:text-7xl lg:text-[82px] font-black uppercase text-outline-navy">FREE CONFIDENTIAL INSURANCE CHECK</span>
+                <span class="text-5xl sm:text-7xl lg:text-[82px] font-black uppercase text-navy-900">24/7 ADMISSIONS HELPLINE (619) 630-2176</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         9. MEDNIX OVERLAPPING APPOINTMENT & INSURANCE VERIFICATION + DOTTED MAP
+         ========================================================================== -->
+    <section id="appointment-section" class="py-20 lg:py-28 full-bleed dotted-map-bg border-y border-slate-200/80">
+        <div class="wide-container">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left 6 Cols: Team Image + 3-Step Intake Checklist -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="rounded-3xl overflow-hidden shadow-elevated border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1000&q=85" 
+                             alt="Admissions Specialists at Right Path San Diego" 
+                             class="w-full h-[340px] sm:h-[400px] object-cover">
+                    </div>
+
+                    <div class="bg-white rounded-3xl p-7 shadow-soft border border-slate-200/70 space-y-4">
+                        <h3 class="text-xl font-extrabold text-navy-900">
+                            Walking Through Our Doors Is Often the Hardest Part.
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Our first responsibility is not to rush you into treatment. It is to help you feel safe, heard, and understood.
+                        </p>
+                        <div class="grid sm:grid-cols-3 gap-4 pt-2">
+                            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/60">
+                                <span class="text-xs font-extrabold text-cyan-600">Step 01</span>
+                                <p class="text-xs font-bold text-navy-900 mt-0.5">Reach Out 24/7</p>
+                                <p class="text-[11px] text-slate-500 mt-0.5">Free &amp; confidential call or form</p>
+                            </div>
+                            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/60">
+                                <span class="text-xs font-extrabold text-cyan-600">Step 02</span>
+                                <p class="text-xs font-bold text-navy-900 mt-0.5">Intake Assessment</p>
+                                <p class="text-[11px] text-slate-500 mt-0.5">Match to the right program</p>
+                            </div>
+                            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/60">
+                                <span class="text-xs font-extrabold text-cyan-600">Step 03</span>
+                                <p class="text-xs font-bold text-navy-900 mt-0.5">Begin Recovery</p>
+                                <p class="text-[11px] text-slate-500 mt-0.5">Complimentary SAN pickup</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right 6 Cols: Elevated Overlapping White Appointment & Insurance Card -->
+                <div class="lg:col-span-6">
+                    <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-elevated border border-slate-200/90">
+                        <span class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-cyan-600 mb-2">
+                            <i class="ph-fill ph-shield-check"></i> STEP 1 OF 4 · FREE &amp; CONFIDENTIAL
+                        </span>
+                        <h2 class="text-2xl sm:text-4xl font-extrabold text-navy-900 mb-2">
+                            Verify Your Insurance or Book an Assessment
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-500 mb-6">
+                            A treatment specialist helps verify your benefits and follows up with you. Prefer to talk? Call <a href="tel:6196302176" class="font-extrabold text-cyan-600 underline">(619) 630-2176</a> anytime.
+                        </p>
+
+                        <!-- Who is this for selector -->
+                        <div class="grid grid-cols-2 gap-3 mb-5">
+                            <button type="button" id="for-myself-btn" onclick="selectWho('Myself')" class="py-3 px-4 rounded-xl border-2 border-cyan-500 bg-cyan-50/60 text-navy-900 font-extrabold text-xs flex items-center justify-center gap-2">
+                                <i class="ph-fill ph-check-circle text-cyan-600 text-base"></i> For Myself
+                            </button>
+                            <button type="button" id="for-loved-btn" onclick="selectWho('Someone I Love')" class="py-3 px-4 rounded-xl border border-slate-200 hover:border-cyan-500 text-slate-700 font-extrabold text-xs flex items-center justify-center gap-2">
+                                <i class="ph-bold ph-heart text-cyan-600 text-base"></i> For Someone I Love
+                            </button>
+                        </div>
+
+                        <form id="mednix-intake-form" onsubmit="handleIntakeSubmit(event)" class="space-y-4">
+                            <input type="hidden" id="who-input" value="Myself">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <input type="text" required placeholder="First Name *" class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-cyan-500">
+                                <input type="text" required placeholder="Last Name *" class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-cyan-500">
+                                <input type="tel" required placeholder="Phone Number *" class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-cyan-500">
+                                <select required class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-cyan-500">
+                                    <option value="">Insurance Provider *</option>
+                                    <option value="Anthem BlueCross">Anthem BlueCross / BlueShield</option>
+                                    <option value="Aetna">Aetna PPO</option>
+                                    <option value="Cigna">Cigna Behavioral Health</option>
+                                    <option value="UnitedHealthcare">UnitedHealthcare / Optum</option>
+                                    <option value="Tricare">TRICARE</option>
+                                    <option value="Self-Pay">Self-Pay / Private Pay</option>
+                                </select>
+                                <select class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-cyan-500">
+                                    <option value="">Level of Care Needed</option>
+                                    <option value="Detox">01 · Medical Detox</option>
+                                    <option value="Residential">02 · Residential Care (30–90 Days)</option>
+                                    <option value="PHP">03 · Partial Hospitalization (PHP)</option>
+                                    <option value="IOP">04 · Intensive Outpatient (IOP)</option>
+                                </select>
+                                <input type="text" placeholder="Insurance Member ID (Optional)" class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-cyan-500">
+                            </div>
+
+                            <textarea rows="3" placeholder="Any questions, substances, or co-occurring conditions you'd like our clinical team to know?" class="w-full px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-cyan-500"></textarea>
+
+                            <button type="submit" class="btn-mednix w-full justify-between py-3 px-6 text-sm shadow-cyan-glow">
+                                <span>Verify Insurance &amp; Request Confidential Callback</span>
+                                <span class="arrow-box"><i class="ph-bold ph-arrow-up-right"></i></span>
+                            </button>
+
+                            <p class="text-[11px] text-slate-400 text-center">
+                                Please note: We accept most major private insurance providers and self-pay options. We do not accept Medicare, Medi-Cal, or Medicaid.
+                            </p>
+                        </form>
+
+                        <div id="form-success-box" class="hidden text-center py-8 space-y-3">
+                            <i class="ph-fill ph-check-circle text-5xl text-emerald-500"></i>
+                            <h4 class="text-xl font-extrabold text-navy-900">Your Confidential Verification Is In Progress</h4>
+                            <p class="text-sm text-slate-600">A San Diego admissions specialist will reach out to you shortly. For immediate 24/7 assistance, call <a href="tel:6196302176" class="text-cyan-600 font-bold underline">(619) 630-2176</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         10. WIDE 2x2 "CLINICAL INSIGHTS & SAN DIEGO CAMPUSES" BENTO GRID (Mednix Style)
+         ========================================================================== -->
+    <section id="case-studies-section" class="py-20 lg:py-28 full-bleed bg-teal-50/40">
+        <div class="wide-container">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <h2 class="text-4xl sm:text-6xl font-extrabold text-navy-900 tracking-tight leading-none">
+                    San Diego Campuses <br>
+                    <span class="inline-flex items-center gap-3">
+                        <i class="ph-duotone ph-buildings text-cyan-500"></i>
+                        <span class="font-serif italic font-normal text-cyan-600">&amp; Clinical Programs</span>
+                    </span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Box 1: University City Residential -->
+                <div class="bg-white rounded-3xl p-4 sm:p-5 shadow-soft border border-slate-200/80 group">
+                    <div class="rounded-2xl overflow-hidden h-72 sm:h-80 relative">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=85" 
+                             alt="Right Path Residential University City" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-navy-900/90 text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full">
+                            2821 Lange Ave., San Diego, CA 92122
+                        </span>
+                    </div>
+                    <div class="pt-5 px-2 flex items-center justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-600">University City · A Home, Not a Ward</span>
+                            <h3 class="text-lg sm:text-xl font-extrabold text-navy-900">Medical Detox &amp; Residential Sanctuary</h3>
+                        </div>
+                        <a href="#appointment-section" class="px-4 py-2 rounded-full bg-slate-100 group-hover:bg-cyan-500 group-hover:text-white text-navy-900 text-xs font-extrabold transition shrink-0">
+                            Schedule Tour →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Box 2: Mission Valley Outpatient -->
+                <div class="bg-white rounded-3xl p-4 sm:p-5 shadow-soft border border-slate-200/80 group">
+                    <div class="rounded-2xl overflow-hidden h-72 sm:h-80 relative">
+                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1000&q=85" 
+                             alt="Right Path Outpatient Mission Valley" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-cyan-500 text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full">
+                            8885 Rio San Diego Dr., Suite 133, San Diego, CA 92108
+                        </span>
+                    </div>
+                    <div class="pt-5 px-2 flex items-center justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-600">Mission Valley · Fits Around Your Life</span>
+                            <h3 class="text-lg sm:text-xl font-extrabold text-navy-900">Day &amp; Evening PHP and IOP Programs</h3>
+                        </div>
+                        <a href="#appointment-section" class="px-4 py-2 rounded-full bg-slate-100 group-hover:bg-cyan-500 group-hover:text-white text-navy-900 text-xs font-extrabold transition shrink-0">
+                            Schedule Tour →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Box 3: Dual-Diagnosis & Trauma -->
+                <div class="bg-white rounded-3xl p-4 sm:p-5 shadow-soft border border-slate-200/80 group">
+                    <div class="rounded-2xl overflow-hidden h-72 sm:h-80 relative">
+                        <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1000&q=85" 
+                             alt="Dual Diagnosis Addiction & Mental Health" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-navy-900/90 text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full">
+                            CBT · DBT · ACT · Trauma-Informed Care
+                        </span>
+                    </div>
+                    <div class="pt-5 px-2 flex items-center justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-600">Addiction &amp; Mental Health Together</span>
+                            <h3 class="text-lg sm:text-xl font-extrabold text-navy-900">Co-Occurring Anxiety, PTSD, Depression &amp; Detox</h3>
+                        </div>
+                        <a href="#appointment-section" class="px-4 py-2 rounded-full bg-slate-100 group-hover:bg-cyan-500 group-hover:text-white text-navy-900 text-xs font-extrabold transition shrink-0">
+                            Learn More →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Box 4: Family Program & Interventions -->
+                <div class="bg-white rounded-3xl p-4 sm:p-5 shadow-soft border border-slate-200/80 group">
+                    <div class="rounded-2xl overflow-hidden h-72 sm:h-80 relative">
+                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=85" 
+                             alt="Family Program & Lifetime Alumni" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full">
+                            24/7/365 Alumni Hotline &amp; Family Therapy
+                        </span>
+                    </div>
+                    <div class="pt-5 px-2 flex items-center justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-600">If You're Here For Someone You Love</span>
+                            <h3 class="text-lg sm:text-xl font-extrabold text-navy-900">Family Therapy, Interventions &amp; Alumni Network</h3>
+                        </div>
+                        <a href="#appointment-section" class="px-4 py-2 rounded-full bg-slate-100 group-hover:bg-cyan-500 group-hover:text-white text-navy-900 text-xs font-extrabold transition shrink-0">
+                            Family Support →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         11. 100% FULL-BLEED CLINICAL CONSULTATION BANNER WITH 99.4% GLASS OVERLAY
+         ========================================================================== -->
+    <section class="full-bleed relative h-[480px] lg:h-[560px] overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=2000&q=85" 
+             alt="Doctor Consulting Patient at Right Path Hospital" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-navy-950/40 via-transparent to-navy-950/75"></div>
+
+        <div class="wide-container h-full flex items-end justify-end pb-12 relative z-10">
+            <!-- Exact Mednix Frosted Glass Card on Bottom Right -->
+            <div class="bg-navy-950/75 backdrop-blur-xl border border-white/25 text-white rounded-3xl p-8 max-w-md shadow-2xl">
+                <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 mb-4">
+                    <i class="ph-duotone ph-heartbeat text-2xl"></i>
+                </div>
+                <p class="text-sm sm:text-base text-slate-200 leading-relaxed mb-4">
+                    Tracked across detox, residential, outpatient, and alumni care through the <strong>Videra Health Recovery Quotient™</strong>:
+                </p>
+                <div class="text-4xl sm:text-5xl font-black text-cyan-400 tracking-tight">99.4%</div>
+                <p class="text-xs font-bold uppercase tracking-widest text-slate-300 mt-1">Clinical Safety &amp; Patient Care Score</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         12. WIDE 8-CARD PATIENT & CARE TEAM FEEDBACK GRID (Mednix 2x4 Layout)
+         ========================================================================== -->
+    <section class="py-20 lg:py-28 full-bleed bg-white">
+        <div class="wide-container">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <h2 class="text-4xl sm:text-6xl font-extrabold text-navy-900 tracking-tight leading-none">
+                    Feedback from <br>
+                    <span class="inline-flex items-center gap-3">
+                        <i class="ph-duotone ph-quotes text-cyan-500"></i>
+                        <span class="font-serif italic font-normal text-cyan-600">Our Patients &amp; Team</span>
+                    </span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <p class="font-extrabold text-navy-900 text-sm">Cassondra Pallotto</p>
+                        <p class="text-[11px] font-bold text-cyan-600 mb-3">Behavioral Health Technician II</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">“I’ve been blessed to walk six years in recovery… I believe in giving back what was so freely given to me every single day on the floor.”</p>
+                    </div>
+                    <div class="flex text-amber-400 text-xs mt-4 pt-3 border-t border-slate-200/60">★★★★★</div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <p class="font-extrabold text-navy-900 text-sm">Adam Figueroa, BSP</p>
+                        <p class="text-[11px] font-bold text-cyan-600 mb-3">Behavioral Health Tech II · U.S. Army Vet</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">“I am a retired U.S. Army veteran who proudly served during Operation Desert Storm. Helping veterans and adults rebuild their lives is my mission.”</p>
+                    </div>
+                    <div class="flex text-amber-400 text-xs mt-4 pt-3 border-t border-slate-200/60">★★★★★</div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <p class="font-extrabold text-navy-900 text-sm">Jaimie McMillan</p>
+                        <p class="text-[11px] font-bold text-cyan-600 mb-3">BHT Supervisor</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">“I believe no one can heal without hope. From the first moment a patient arrives at University City, we make sure they feel safe and respected.”</p>
+                    </div>
+                    <div class="flex text-amber-400 text-xs mt-4 pt-3 border-t border-slate-200/60">★★★★★</div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <p class="font-extrabold text-navy-900 text-sm">Chef Devon Deaton</p>
+                        <p class="text-[11px] font-bold text-cyan-600 mb-3">Executive Chef · 8-Yr Navy Veteran</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">“I am an eight-year Navy veteran and cook who believes a fresh start deserves fresh, scratch-made food shared around a family table.”</p>
+                    </div>
+                    <div class="flex text-amber-400 text-xs mt-4 pt-3 border-t border-slate-200/60">★★★★★</div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <p class="font-extrabold text-navy-900 text-sm">Michael R.</p>
+                        <p class="text-[11px] font-bold text-cyan-600 mb-3">Mission Valley IOP Alumni</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">“Evening IOP allowed me to keep my engineering job in San Diego while getting dual-diagnosis care for alcohol and anxiety.”</p>
+                    </div>
+                    <div class="flex text-amber-400 text-xs mt-4 pt-3 border-t border-slate-200/60">★★★★★</div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <p class="font-extrabold text-navy-900 text-sm">Sarah &amp; David L.</p>
+                        <p class="text-[11px] font-bold text-cyan-600 mb-3">Right Path Family Program</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">“When our son wasn't ready, Right Path guided our family through a compassionate intervention and involved us in weekly family therapy.”</p>
+                    </div>
+                    <div class="flex text-amber-400 text-xs mt-4 pt-3 border-t border-slate-200/60">★★★★★</div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <p class="font-extrabold text-navy-900 text-sm">Daniel K.</p>
+                        <p class="text-[11px] font-bold text-cyan-600 mb-3">University City Residential Graduate</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">“It truly felt like a quiet San Diego home, never a sterile hospital ward. The 24/7 alumni hotline still checks in on me.”</p>
+                    </div>
+                    <div class="flex text-amber-400 text-xs mt-4 pt-3 border-t border-slate-200/60">★★★★★</div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <p class="font-extrabold text-navy-900 text-sm">Elena V.</p>
+                        <p class="text-[11px] font-bold text-cyan-600 mb-3">Detox &amp; PHP Alumni</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">“From airport pickup at SAN to medically supervised detox and PHP, the entire continuum was seamless and judgment-free.”</p>
+                    </div>
+                    <div class="flex text-amber-400 text-xs mt-4 pt-3 border-t border-slate-200/60">★★★★★</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         13. PEER-REVIEWED RESEARCH & PUBLICATIONS (Mednix 3-Column Blog Style)
+         ========================================================================== -->
+    <section id="research-section" class="py-16 lg:py-24 full-bleed bg-slate-50 border-t border-slate-200/80">
+        <div class="wide-container">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-cyan-600 block mb-2">+ RESEARCH BEHIND THE MODEL</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-navy-900">
+                    Informed Insights &amp; <span class="font-serif italic font-normal text-cyan-600">Published Research</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <article class="bg-white rounded-3xl overflow-hidden shadow-soft border border-slate-200/80 group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Psychiatric Services 2025" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-cyan-500 text-white text-xs font-extrabold px-3 py-1 rounded-full">Psychiatric Services · 2025</span>
+                    </div>
+                    <div class="p-7">
+                        <h3 class="text-lg font-extrabold text-navy-900 mb-2">Changes in Recovery Assessment Scale Scores During a Treatment Episode</h3>
+                        <p class="text-xs text-slate-500 mb-4">Outcome research across patients in a large behavioral health care system by Integrated Behavioral Health Group.</p>
+                        <a href="#appointment-section" class="text-xs font-extrabold uppercase tracking-wider text-cyan-600 hover:text-navy-900">Read Publication ↗</a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-3xl overflow-hidden shadow-soft border border-slate-200/80 group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80" alt="Psychiatry Research Communications 2024" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-navy-900 text-white text-xs font-extrabold px-3 py-1 rounded-full">Psychiatry Research · 2024</span>
+                    </div>
+                    <div class="p-7">
+                        <h3 class="text-lg font-extrabold text-navy-900 mb-2">Association Between Depression Severity, Mental Health Recovery &amp; Dropout</h3>
+                        <p class="text-xs text-slate-500 mb-4">Peer-reviewed clinical study demonstrating why treating addiction and mental health together improves retention.</p>
+                        <a href="#appointment-section" class="text-xs font-extrabold uppercase tracking-wider text-cyan-600 hover:text-navy-900">Read Publication ↗</a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-3xl overflow-hidden shadow-soft border border-slate-200/80 group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" alt="NIMH NIDA K-01 Study" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-cyan-500 text-white text-xs font-extrabold px-3 py-1 rounded-full">NIMH (NIDA) K-01 &amp; White Paper</span>
+                    </div>
+                    <div class="p-7">
+                        <h3 class="text-lg font-extrabold text-navy-900 mb-2">One Healthcare Lane &amp; Dynamic Optimal Treatment Regimes for Opioid Use Disorder</h3>
+                        <p class="text-xs text-slate-500 mb-4">A vision for the future of behavioral healthcare and adaptive clinical care pathways.</p>
+                        <a href="#appointment-section" class="text-xs font-extrabold uppercase tracking-wider text-cyan-600 hover:text-navy-900">Read White Paper ↗</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         14. EDGE-TO-EDGE MEDNIX DARK NAVY FOOTER + WHITE CONTACT CARD + GIANT MARQUEE
+         ========================================================================== -->
+    <footer class="full-bleed bg-navy-950 text-slate-300 pt-20 overflow-hidden border-t border-white/10">
+        <div class="wide-container pb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                
+                <!-- Left 4 Cols: Exact Mednix Elevated White Contact Box Inside Dark Footer -->
+                <div class="lg:col-span-4 bg-white text-navy-900 rounded-3xl p-8 shadow-2xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500 text-white flex items-center justify-center font-extrabold">
+                            <i class="ph-bold ph-first-aid text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xl font-extrabold tracking-tight text-navy-900">Right<span class="text-cyan-600">Path</span></span>
+                            <span class="block text-[11px] font-bold text-slate-500">Integrated Behavioral Health Group</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-5">
+                        Drug &amp; alcohol rehab in San Diego. Measured by what happens after you leave. Joint Commission Gold Seal Accredited.
+                    </p>
+                    <div class="space-y-2.5 text-xs border-t border-slate-200 pt-4">
+                        <p class="font-extrabold text-navy-900">Headquarters · Outpatient (PHP/IOP):</p>
+                        <p class="text-slate-600">8885 Rio San Diego Dr., Suite 133, San Diego, CA 92108</p>
+                        <p class="font-extrabold text-navy-900 pt-1">University City · Detox &amp; Residential:</p>
+                        <p class="text-slate-600">2821 Lange Ave., San Diego, CA 92122</p>
+                        <div class="pt-3">
+                            <a href="tel:6196302176" class="inline-flex items-center gap-2 text-base font-black text-cyan-600 hover:text-navy-900">
+                                <i class="ph-fill ph-phone-call"></i> (619) 630-2176 · 24/7
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center 4 Cols: Navigation Links -->
+                <div class="lg:col-span-4 grid grid-cols-2 gap-6 text-xs">
+                    <div>
+                        <h4 class="text-sm font-extrabold text-white uppercase tracking-wider mb-4">Levels of Care</h4>
+                        <ul class="space-y-2.5">
+                            <li><a href="#services-section" class="hover:text-cyan-400">01 · Medical Detox</a></li>
+                            <li><a href="#services-section" class="hover:text-cyan-400">02 · Residential Care</a></li>
+                            <li><a href="#services-section" class="hover:text-cyan-400">03 · Partial Hospitalization</a></li>
+                            <li><a href="#services-section" class="hover:text-cyan-400">04 · Intensive Outpatient</a></li>
+                            <li><a href="#services-section" class="hover:text-cyan-400">05 · Aftercare &amp; Alumni</a></li>
+                            <li><a href="#dark-holistic-section" class="hover:text-cyan-400">60-Day Relapse Guarantee</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-extrabold text-white uppercase tracking-wider mb-4">Right Path</h4>
+                        <ul class="space-y-2.5">
+                            <li><a href="#appointment-section" class="hover:text-cyan-400">Admissions Process</a></li>
+                            <li><a href="#appointment-section" class="hover:text-cyan-400">Verify Insurance</a></li>
+                            <li><a href="#dark-holistic-section" class="hover:text-cyan-400">The Recovery Quotient™</a></li>
+                            <li><a href="#case-studies-section" class="hover:text-cyan-400">For Families &amp; Interventions</a></li>
+                            <li><a href="#doctors-section" class="hover:text-cyan-400">Our Physicians &amp; Team</a></li>
+                            <li><a href="#research-section" class="hover:text-cyan-400">Published Research</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right 4 Cols: Quick Insurance Check Input & Crisis Notice -->
+                <div class="lg:col-span-4 space-y-4">
+                    <h4 class="text-sm font-extrabold text-white uppercase tracking-wider">Start With a Free Benefits Check</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Talk with someone tonight, or start with a confidential insurance check. Either way, you won’t be rushed.
+                    </p>
+                    <div class="flex gap-2">
+                        <input type="tel" placeholder="Enter your phone number..." class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white text-xs focus:outline-none focus:border-cyan-400">
+                        <button onclick="openInsuranceModal()" class="px-5 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-white font-extrabold text-xs shrink-0">
+                            Verify ↗
+                        </button>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-[11px] text-amber-300">
+                        <strong>Crisis Support:</strong> If you or someone you love is in crisis, call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline) or call <strong>911</strong>.
+                    </div>
+                    <p class="text-[11px] text-slate-400">
+                        DHCS License #370213BP · exp. 4/30/2027 · © 2026 Right Path Recovery · Integrated Behavioral Health Group
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Giant Mednix Bottom Footer Marquee -->
+        <div class="full-bleed py-4 bg-navy-900/90 border-t border-white/10 overflow-hidden">
+            <div class="marquee-track flex items-center gap-10 text-3xl sm:text-5xl font-black uppercase text-white/15">
+                <span>MEDICAL DETOX SAN DIEGO</span><span>✻</span>
+                <span>RESIDENTIAL REHAB</span><span>✻</span>
+                <span>PARTIAL HOSPITALIZATION</span><span>✻</span>
+                <span>INTENSIVE OUTPATIENT</span><span>✻</span>
+                <span>THE RECOVERY QUOTIENT</span><span>✻</span>
+                <span>MEDICAL DETOX SAN DIEGO</span><span>✻</span>
+                <span>RESIDENTIAL REHAB</span><span>✻</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+         MODALS: Insurance Check & Founder Dr. John Peloquin Story
+         ========================================================================== -->
+    <div id="insurance-modal" class="fixed inset-0 z-[9999] hidden bg-navy-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-7 sm:p-9 shadow-2xl relative">
+            <button onclick="closeInsuranceModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-navy-900 flex items-center justify-center">
+                <i class="ph-bold ph-x"></i>
+            </button>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-700 bg-cyan-50 px-3 py-1 rounded-full">100% Free &amp; Confidential</span>
+            <h3 class="text-2xl font-extrabold text-navy-900 mt-2">Verify Your Insurance Coverage</h3>
+            <p class="text-xs text-slate-500 mt-1 mb-5">We accept most major PPO insurance plans. Checking your coverage is free and confidential.</p>
+            <form onsubmit="event.preventDefault(); closeInsuranceModal(); document.getElementById('appointment-section').scrollIntoView({behavior:'smooth'});" class="space-y-3.5">
+                <input type="text" required placeholder="First & Last Name *" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm">
+                <input type="tel" required placeholder="Phone Number *" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm">
+                <input type="text" required placeholder="Insurance Provider (e.g. Anthem, Aetna, Cigna) *" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm">
+                <button type="submit" class="btn-mednix w-full justify-between py-3">
+                    <span>Complete Verification</span>
+                    <span class="arrow-box"><i class="ph-bold ph-arrow-up-right"></i></span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="founder-modal" class="fixed inset-0 z-[9999] hidden bg-navy-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-7 sm:p-9 shadow-2xl relative">
+            <button onclick="closeFounderModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-navy-900 flex items-center justify-center">
+                <i class="ph-bold ph-x"></i>
+            </button>
+            <div class="flex items-center gap-4 mb-4">
+                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=200&q=80" alt="John Peloquin, PhD, MBA" class="w-16 h-16 rounded-2xl object-cover">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-600">Founder &amp; CEO</span>
+                    <h3 class="text-xl font-extrabold text-navy-900">John Peloquin, PhD, MBA</h3>
+                    <p class="text-xs text-slate-500">Right Path Recovery &amp; Integrated Behavioral Health Group</p>
+                </div>
+            </div>
+            <p class="text-sm text-slate-700 leading-relaxed bg-slate-50 p-5 rounded-2xl border border-slate-200/70">
+                “I have spent 30+ years working to improve behavioral healthcare and redefine what treatment success means. We don't measure our success by how many people come through our doors. We measure it by what happens after they leave—combining compassionate residential and outpatient care in San Diego with Videra Health's Recovery Quotient™.”
+            </p>
+            <div class="mt-5 flex justify-end">
+                <button onclick="closeFounderModal(); openInsuranceModal();" class="btn-mednix">
+                    <span>Verify Insurance Now</span>
+                    <span class="arrow-box"><i class="ph-bold ph-arrow-up-right"></i></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         JAVASCRIPT: Mega Menu, Service Filter & Form Controls
+         ========================================================================== -->
+    <script>
+        // Mega Menu Click & ESC Controls
+        const megaTriggers = document.querySelectorAll('.mega-trigger');
+        megaTriggers.forEach(trigger => {
+            const btn = trigger.querySelector('button');
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = trigger.classList.contains('open');
+                megaTriggers.forEach(other => other.classList.remove('open'));
+                if (!isOpen) trigger.classList.add('open');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            megaTriggers.forEach(t => t.classList.remove('open'));
+        });
+
+        // Filter 6-Card Services Grid
+        function filterCare(category) {
+            const cards = document.querySelectorAll('[data-care-item]');
+            const tabs = document.querySelectorAll('.care-tab');
+
+            tabs.forEach(tab => {
+                if (tab.dataset.care === category) {
+                    tab.className = "care-tab bg-navy-900 text-white text-xs font-extrabold px-5 py-2.5 rounded-lg transition";
+                } else {
+                    tab.className = "care-tab bg-white hover:bg-cyan-50 text-navy-900 text-xs font-extrabold px-5 py-2.5 rounded-lg border border-slate-200 transition";
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.careItem === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Who is this for selector
+        function selectWho(val) {
+            document.getElementById('who-input').value = val;
+            const myselfBtn = document.getElementById('for-myself-btn');
+            const lovedBtn = document.getElementById('for-loved-btn');
+            if (val === 'Myself') {
+                myselfBtn.className = "py-3 px-4 rounded-xl border-2 border-cyan-500 bg-cyan-50/60 text-navy-900 font-extrabold text-xs flex items-center justify-center gap-2";
+                lovedBtn.className = "py-3 px-4 rounded-xl border border-slate-200 hover:border-cyan-500 text-slate-700 font-extrabold text-xs flex items-center justify-center gap-2";
+            } else {
+                lovedBtn.className = "py-3 px-4 rounded-xl border-2 border-cyan-500 bg-cyan-50/60 text-navy-900 font-extrabold text-xs flex items-center justify-center gap-2";
+                myselfBtn.className = "py-3 px-4 rounded-xl border border-slate-200 hover:border-cyan-500 text-slate-700 font-extrabold text-xs flex items-center justify-center gap-2";
+            }
+        }
+
+        function handleIntakeSubmit(e) {
+            e.preventDefault();
+            document.getElementById('mednix-intake-form').classList.add('hidden');
+            document.getElementById('form-success-box').classList.remove('hidden');
+        }
+
+        function openInsuranceModal() {
+            document.getElementById('insurance-modal').classList.remove('hidden');
+        }
+        function closeInsuranceModal() {
+            document.getElementById('insurance-modal').classList.add('hidden');
+        }
+        function openFounderModal() {
+            document.getElementById('founder-modal').classList.remove('hidden');
+        }
+        function closeFounderModal() {
+            document.getElementById('founder-modal').classList.add('hidden');
+        }
+        function toggleMobileMenu() {
+            document.getElementById('mobile-drawer').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

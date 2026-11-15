@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset=utf8>
+  <meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <link rel="stylesheet" href="assets/style.css">
+  <title>Data-Driven Ads</title>
+</head>
+
+<body>
+  <meta name="claude:viewport-fit-sides" content="cover">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap">
+
+
+
+  <!-- ========================================
+     HTML STRUCTURE
+     WP: get_header() would output everything up to <main>
+     ======================================== -->
+
+  <header class="site-header page-wrap">
+    <div class="site-header__inner content-contain">
+      <a class="site-header__brand" href="#hero" aria-label="Go to homepage">
+        <img src="assets/logo.png" alt="Company logo" class="site-header__logo">
+      </a>
+      <a class="site-header__cta" href="#cta-section">Book a Strategy Call</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <!-- WP: Elementor Hero Section widget or ACF hero fields -->
+  <section class="hero" id="hero">
+    <div class="hero__orb hero__orb--1"></div>
+    <div class="hero__orb hero__orb--2"></div>
+    <div class="hero__orb hero__orb--3"></div>
+    <div class="hero__grid"></div>
+
+    <div class="hero__inner page-wrap">
+      <p class="hero__eyebrow">Data-Driven Advertising</p>
+
+      <h1 class="hero__headline">
+        <span class="line">Scale Your Business With</span>
+        <span class="line line--accent">Data-Driven Ads</span>
+      </h1>
+
+      <div class="hero__badges">
+        <span class="hero__badge">
+          <svg class="hero__badge-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="8" cy="8" r="6" />
+            <path d="M8 5v3l2 2" />
+          </svg>
+          GEO
+        </span>
+        <span class="hero__badge">
+          <svg class="hero__badge-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 8h12M8 2v12" />
+            <circle cx="8" cy="8" r="6" />
+          </svg>
+          SEO
+        </span>
+      </div>
+
+      <div class="hero__actions">
+        <a href="#showcase" class="btn btn--primary">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="2" y="2" width="5" height="5" rx="1" />
+            <rect x="11" y="2" width="5" height="5" rx="1" />
+            <rect x="2" y="11" width="5" height="5" rx="1" />
+            <rect x="11" y="11" width="5" height="5" rx="1" />
+          </svg>
+          Explore Our Work
+        </a>
+        <button class="btn btn--ghost"
+          onclick="document.getElementById('cta-section').scrollIntoView({behavior:'smooth'})">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M3 9h12M12 5l4 4-4 4" />
+          </svg>
+          Book a Strategy Call
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <!-- WP: This could be a custom taxonomy nav with AJAX filtering or REST API calls -->
+  <div class="filter-bar" id="filterBar">
+    <div class="filter-bar__inner page-wrap content-contain">
+
+      <div class="filter-search">
+        <svg class="filter-search__icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="8" cy="8" r="5.5" />
+          <path d="M12.5 12.5 16 16" />
+        </svg>
+        <input type="text" class="filter-search__input" id="searchInput"
+          placeholder="Search systems, tags, features&hellip;" aria-label="Search portfolio">
+      </div>
+
+      <!-- WP: wp_nav_menu() or get_terms('portfolio_category') -->
+      <div class="filter-pills" id="categoryPills" role="tablist">
+        <button class="filter-pill filter-pill--active" role="tab" aria-selected="true" data-category="all">All
+          Systems</button>
+        <button class="filter-pill" role="tab" aria-selected="false"
+          data-category="Multi-Specialty Hospital">Hospital</button>
+        <button class="filter-pill" role="tab" aria-selected="false" data-category="Specialized Clinic">Clinic</button>
+        <button class="filter-pill" role="tab" aria-selected="false" data-category="Private Practice">Practice</button>
+      </div>
+
+      <div class="filter-select" id="platformSelect">
+        <button class="filter-select__btn" aria-expanded="false" aria-haspopup="listbox">
+          <span id="platformLabel">All Platforms</span>
+          <svg class="filter-select__chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 5l4 4 4-4" />
+          </svg>
+        </button>
+        <div class="filter-select__dropdown" role="listbox">
+          <button class="filter-select__option filter-select__option--active" role="option" data-platform="all">All
+            Platforms</button>
+          <button class="filter-select__option" role="option" data-platform="WordPress + Elementor Ready">WordPress +
+            Elementor</button>
+          <button class="filter-select__option" role="option" data-platform="Custom Headless / Jamstack">Headless /
+            Jamstack</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHOWCASE SECTION -->
+  <!-- WP: This is the main template part – page-portfolio.php or archive-portfolio.php -->
+  <main class="showcase page-wrap" id="showcase">
+    <div class="content-contain">
+      <div class="showcase__heading reveal">
+        <h2 class="showcase__title">Pre-Engineered Healthcare Platforms</h2>
+      </div>
+      <p class="showcase__subtitle reveal">Conversion-tested frameworks ready for immediate deployment. Each system is
+        SEO-structured, Geo-Ads optimized, and PageSpeed certified.</p>
+
+      <!-- WP: <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?> -->
+      <div class="showcase__grid" id="showcaseGrid">
+        <!-- Cards rendered dynamically by JS -->
+      </div>
+      <!-- WP: <?php endwhile; endif; wp_reset_postdata(); ?> -->
+    </div>
+  </main>
+
+  <!-- TECH SPECS MODAL -->
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal" id="modal">
+      <div class="modal__header">
+        <h3 class="modal__title" id="modalTitle">Tech Specifications</h3>
+        <button class="modal__close" id="modalClose" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 5l10 10M15 5 5 15" />
+          </svg>
+        </button>
+      </div>
+      <div class="modal__body" id="modalBody">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BANNER -->
+  <section class="page-wrap" id="cta-section">
+    <div class="content-contain">
+      <div class="cta-banner reveal">
+        <div class="cta-banner__inner">
+          <h2 class="cta-banner__headline">Ready to grow with data-driven ads?</h2>
+          <p class="cta-banner__sub">Let’s build a smarter strategy around your audience, goals, and measurable results.</p>
+          <button class="btn btn--cta">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M9 2v14M2 9h14" />
+            </svg>
+            Book a Strategy Call
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <!-- WP: get_footer() -->
+  <footer class="site-footer page-wrap">
+    <div class="content-contain">
+      <p class="site-footer__text">Data-driven advertising for measurable business growth.</p>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+
+</body>
+
+</html>
